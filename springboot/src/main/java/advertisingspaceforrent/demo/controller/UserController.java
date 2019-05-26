@@ -1,10 +1,10 @@
 package advertisingspaceforrent.demo.controller;
 
 import advertisingspaceforrent.demo.service.UserService;
-import advertisingspaceforrent.demo.vo.AddMoneyForm;
 import advertisingspaceforrent.demo.vo.LoginForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import advertisingspaceforrent.demo.vo.SignUpForm;
+import advertisingspaceforrent.demo.vo.UpdateMoneyForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +26,9 @@ public class UserController {
         return userService.signUp(signUpForm);
     }
 
-    @RequestMapping("/user/addmoney")
-    public ResponseVO addMoney(@RequestBody AddMoneyForm addMoneyForm){
-        return userService.addMoney(addMoneyForm);
+    @RequestMapping("/user/updatemoney")
+    public ResponseVO addMoney(@RequestBody UpdateMoneyForm updateMoneyForm){
+        return userService.updateMoney(updateMoneyForm);
     }
+
 }
