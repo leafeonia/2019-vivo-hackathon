@@ -64,8 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
-                Intent i = new Intent(MainActivity.this, HomepageActivity.class);
+                Intent i = new Intent(MainActivity.this,HomepageActivity.class);
                 startActivity(i);
 
                 String usn = usnInput.getText().toString();

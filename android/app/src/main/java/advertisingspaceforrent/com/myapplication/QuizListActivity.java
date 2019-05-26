@@ -9,15 +9,30 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import advertisingspaceforrent.com.myapplication.util.APIUtil;
+import advertisingspaceforrent.com.myapplication.util.ToastUtil;
+import advertisingspaceforrent.com.myapplication.vo.ResponseVO;
+import advertisingspaceforrent.com.myapplication.vo.User;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class QuizListActivity extends AppCompatActivity {
 
     private ListView mquizList;
+    private Integer mLanguageId;
+    List<Category> cateList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,15 +50,39 @@ public class QuizListActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        List<Category> cat; // = getfromserver
+
         Intent intent = getIntent();
-        Integer languageId = intent.getIntExtra("languageId",1);
-        Toast.makeText(QuizListActivity.this,"lan ID" + Integer.toString(languageId),Toast.LENGTH_SHORT).show();
-        //TODO: "/category/get" languageId =  languageId  ,
+        mLanguageId = intent.getIntExtra("languageId",1);
+//        Toast.makeText(QuizListActivity.this,"lan ID" + Integer.toString(languageId),Toast.LENGTH_SHORT).show();
+        APIService apiService = APIUtil.getAPIService();
+//        Map<String,String> map = new LinkedHashMap<>();
+//        map.put("languageId",mLanguageId.toString());
+        Call<ResponseVO> call = apiService.getQuizList(mLanguageId);
+        call.enqueue(new Callback<ResponseVO>() {
+            @Override
+            public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
+                if (response.body().getSuccess()) {
+                    Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
+                    String json = gson.toJson(response.body().getContent());
+                    cateList = gson.fromJson(json, new TypeToken<List<Category>>() {}.getType());
+                } else {
+                    ToastUtil.showToast(QuizListActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseVO> call, Throwable t) {
+                t.printStackTrace();
+                ToastUtil.showToast(QuizListActivity.this,"失败!",Toast.LENGTH_LONG);
+            }
+        });
         Map quizs = new HashMap();
-//        for (Category c : cat)
-        quizs.put("string的使用","completed*28");
-        quizs.put("面向对象的概念", "not completed*16");
+        for (Category c : cateList){
+            String temp;
+            if(c.getFinished() == 0) temp = "completed*26";
+            else temp = "not completed*26";
+            quizs.put(c.getName(),temp);
+        }
         Set<Map.Entry<String,String>> entrys = quizs.entrySet();
         List<Map.Entry<String,String>> quizList = new ArrayList<>(entrys);
         mquizList.setAdapter(new QuizAdapter(quizList,QuizListActivity.this));

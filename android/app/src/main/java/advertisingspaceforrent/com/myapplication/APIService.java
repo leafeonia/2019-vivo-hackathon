@@ -5,6 +5,7 @@ import java.util.Map;
 import advertisingspaceforrent.com.myapplication.vo.ResponseVO;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 public interface APIService {
@@ -14,4 +15,8 @@ public interface APIService {
 
     @GET("user/signup")
     Call<ResponseVO> signUp(@QueryMap Map<String,String> map);
+
+    @GET("category/get")
+    Call<ResponseVO> getQuizList(@Query("languageId") Integer languageId);
+//    Call<ResponseVO> getQuizList(@QueryMap Map<String,String> map);
 }
