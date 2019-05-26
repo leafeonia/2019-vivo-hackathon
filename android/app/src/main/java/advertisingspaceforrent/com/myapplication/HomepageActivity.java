@@ -54,7 +54,7 @@ public class HomepageActivity extends AppCompatActivity
         nav_header_emal = (TextView) header.findViewById(R.id.nav_header_email);
         nav_header_imag = (ImageView) header.findViewById(R.id.nav_header_image);
         nav_header_nam.setText(i.getStringExtra("username"));
-        nav_header_emal.setText(i.getStringExtra("password"));
+        nav_header_emal.setText(i.getStringExtra("email"));
         if (nav_header_gender.equals("Male")) {
             nav_header_imag.setImageResource(R.drawable.man);
         } else {
