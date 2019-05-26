@@ -6,5 +6,15 @@
         SELECT * FROM category WHERE userid=#{userid} AND languageId=#{languageId}
     </select>
 
+    <select id="selectDonelistByUserAndCategoryId" resultMap="Donelist">
+        SELECT * FROM donelist WHERE categoryId=#{categoryId} AND userId=#{userId}
+    </select>
+
+    <insert id="insertDonelist">
+        INSERT INTO donelist (userId,categoryId)
+        VALUES (#{userId},#{categoryId})
+    </insert>
+
     <resultMap id="Category" type="advertisingspaceforrent.demo.po.Category"/>
+    <resultMap id="Donelist" type="advertisingspaceforrent.demo.po.Donelist"/>
 </mapper>

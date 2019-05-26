@@ -1,6 +1,6 @@
 package advertisingspaceforrent.demo.po;
 
-public class Puzzle {
+public class PuzzleUser {
     private Integer puzzleid;
     private Integer userid;
 
