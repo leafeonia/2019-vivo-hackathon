@@ -26,8 +26,8 @@ public class QuizListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         Map quizs = new HashMap();
-        quizs.put("Usage of string","completed");
-        quizs.put("Object oriented", "not completed");
+        quizs.put("string的使用","completed*28");
+        quizs.put("面向对象的概念", "not completed*16");
         Set<Map.Entry<String,String>> entrys = quizs.entrySet();
         List<Map.Entry<String,String>> quizList = new ArrayList<>(entrys);
         mquizList.setAdapter(new QuizAdapter(quizList,QuizListActivity.this));

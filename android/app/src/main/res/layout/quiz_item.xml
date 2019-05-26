@@ -1,23 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <RelativeLayout
-        style="@style/Bar">
+<!--<android.support.constraint.ConstraintLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+    <!--<RelativeLayout-->
+        <!--style="@style/Bar">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_quizName"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentLeft="true"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_quizCompleted"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:textSize="28sp"/>-->
+    <!--</RelativeLayout>-->
+<!--</android.support.constraint.ConstraintLayout>-->
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/medium_margin"
+    android:layout_marginStart="@dimen/medium_margin"
+    app:cardBackgroundColor="#1f4f59"
+    app:cardCornerRadius="@dimen/card_view_corner_radius"
+    app:cardElevation="@dimen/card_view_elevation"
+    app:cardMaxElevation="@dimen/card_view_elevation"
+    app:cardUseCompatPadding="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_16">
 
         <TextView
             android:id="@+id/tv_quizName"
-            android:layout_width="wrap_content"
+            android:textSize="30sp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"/>
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="面向对象" />
+
+
 
         <TextView
-            android:id="@+id/tv_quizCompleted"
+            android:id="@+id/tv_nr_problems"
+            android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:textSize="28sp"/>
-    </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+            android:layout_marginTop="@dimen/medium_margin"
+            android:text="题数"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="@+id/tv_quizName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_quizName" />
+
+        <TextView
+            android:id="@+id/tv_nr_problems_value"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:maxLength="40"
+            android:textColor="@color/white"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_nr_problems"
+            app:layout_constraintStart_toEndOf="@+id/tv_nr_problems"
+            tools:text="28" />
+
+
+        <TextView
+            android:id="@+id/tv_completed_label"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:text="状态"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="@+id/tv_nr_problems"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nr_problems" />
+
+        <TextView
+            android:id="@+id/tv_completion_status"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#009688"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_completed_label"
+            app:layout_constraintStart_toStartOf="@+id/tv_nr_problems_value"
+            tools:text="已完成" />
+
+
+
+        <ImageView
+            android:id="@+id/iv_enter_or_tick"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/tick" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>
