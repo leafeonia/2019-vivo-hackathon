@@ -34,7 +34,7 @@ public class HomepageActivity extends AppCompatActivity
 
     TextView nav_header_nam, nav_header_emal;
     ImageView nav_header_imag;
-    Button b1;
+    Button b1,b2,b3,b4,b5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,25 +47,61 @@ public class HomepageActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        String nav_header_name = "leafeon";
-        String nav_header_email = "924365630@99.com";
         String nav_header_gender = "Male";
         View header = navigationView.getHeaderView(0);//Used to get a reference to navigation header
+        Intent i = getIntent();
         nav_header_nam = (TextView) header.findViewById(R.id.nav_header_name);
         nav_header_emal = (TextView) header.findViewById(R.id.nav_header_email);
         nav_header_imag = (ImageView) header.findViewById(R.id.nav_header_image);
-        nav_header_nam.setText(nav_header_name);
-        nav_header_emal.setText(nav_header_email);
+        nav_header_nam.setText(i.getStringExtra("username"));
+        nav_header_emal.setText(i.getStringExtra("email"));
         if (nav_header_gender.equals("Male")) {
             nav_header_imag.setImageResource(R.drawable.man);
         } else {
             nav_header_imag.setImageResource(R.drawable.female);
         }
         b1 = (Button)findViewById(R.id.b1);
+        b2 = (Button)findViewById(R.id.b2);
+        b3 = (Button)findViewById(R.id.b3);
+        b4 = (Button)findViewById(R.id.b4);
+        b5 = (Button)findViewById(R.id.b5);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 1);
+                startActivity(i);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 2);
+                startActivity(i);
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 3);
+                startActivity(i);
+            }
+        });
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 4);
+                startActivity(i);
+            }
+        });
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 5);
                 startActivity(i);
             }
         });
