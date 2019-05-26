@@ -1,0 +1,6 @@
+
+Gsquid:S1659$")Declare "titleParams" on a separate line.(¼ß¢ã8ô£ê™¯-
+rsquid:S00116"SRename this field "tv_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†¾·8ô£ê™¯-
+Lsquid:S1659")Declare "rightButton" on a separate line.(’€Ş‚üÿÿÿÿ8ô£ê™¯-
+Gsquid:S1659$")Declare "rightParams" on a separate line.(¼ß¢ã8ô£ê™¯-
+asquid:UselessImportCheck"1Remove this unused import 'android.widget.Toast'.(©›ïÍúÿÿÿÿ8şš’›¯-
