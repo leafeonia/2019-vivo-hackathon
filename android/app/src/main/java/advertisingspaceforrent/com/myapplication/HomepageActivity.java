@@ -34,7 +34,7 @@ public class HomepageActivity extends AppCompatActivity
 
     TextView nav_header_nam, nav_header_emal;
     ImageView nav_header_imag;
-    Button b1;
+    Button b1,b2,b3,b4,b5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,10 +61,47 @@ public class HomepageActivity extends AppCompatActivity
             nav_header_imag.setImageResource(R.drawable.female);
         }
         b1 = (Button)findViewById(R.id.b1);
+        b2 = (Button)findViewById(R.id.b2);
+        b3 = (Button)findViewById(R.id.b3);
+        b4 = (Button)findViewById(R.id.b4);
+        b5 = (Button)findViewById(R.id.b5);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 1);
+                startActivity(i);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 2);
+                startActivity(i);
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 3);
+                startActivity(i);
+            }
+        });
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 4);
+                startActivity(i);
+            }
+        });
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                i.putExtra("languageId", 5);
                 startActivity(i);
             }
         });
