@@ -1,10 +1,10 @@
-package advertisingspaceforrent.com.myapplication;
+package advertisingspaceforrent.com.myapplication.vo;
 
 public class Category {
-    private Integer id;
-    private String name;
-    private Integer languageId;
-    private Integer finished;
+    public Integer id;
+    public String name;
+    public Integer languageId;
+    public Integer finished;
 
     public Integer getId() {
         return id;

@@ -22,4 +22,7 @@ public interface APIService {
 
     @GET("user/updatemoney")
     Call<ResponseVO> updateMoney(@QueryMap Map<String,String> map);
+
+    @GET("question/get")
+    Call<ResponseVO> getQuestion(@Query("categoryId") Integer categoryId);
 }

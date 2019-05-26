@@ -3,6 +3,7 @@ package advertisingspaceforrent.com.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,8 +23,8 @@ import java.util.Set;
 
 import advertisingspaceforrent.com.myapplication.util.APIUtil;
 import advertisingspaceforrent.com.myapplication.util.ToastUtil;
+import advertisingspaceforrent.com.myapplication.vo.Category;
 import advertisingspaceforrent.com.myapplication.vo.ResponseVO;
-import advertisingspaceforrent.com.myapplication.vo.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,7 +51,7 @@ public class QuizListActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-
+        List<Category> cat; // = getfromserver
         Intent intent = getIntent();
         mLanguageId = intent.getIntExtra("languageId",1);
 //        Toast.makeText(QuizListActivity.this,"lan ID" + Integer.toString(languageId),Toast.LENGTH_SHORT).show();
