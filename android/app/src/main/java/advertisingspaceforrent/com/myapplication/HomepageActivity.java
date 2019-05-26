@@ -143,14 +143,19 @@ public class HomepageActivity extends AppCompatActivity
             Intent chooser = Intent.createChooser(intent, "Send Feedback Via");
             startActivity(chooser);
 
-        } /*else if (id == R.id.nav_Help) {
+        } else if (id == R.id.nav_Setting) {
+            MainActivity.USER_ID = 0;
+            startActivity(new Intent(this, MainActivity.class));
+        } else if (id == R.id.nav_aboutus) {
+            Uri uri = Uri.parse("https://github.com/leafeonia/2019-vivo-hackathon");//要跳转的网址
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }
+        /*else if (id == R.id.nav_Help) {
             Intent i = new Intent(this, Help.class);
             startActivity(i);
 
-        } else if (id == R.id.nav_aboutus) {
-            Intent i = new Intent(this, AboutUs.class);
-            startActivity(i);
-        }*/
+        } */
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
