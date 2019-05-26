@@ -3,7 +3,6 @@ package advertisingspaceforrent.demo.vo;
 public class UpdateMoneyForm {
 
     private Integer userid;
-
     private Integer money;
 
     public Integer getUserid() {
