@@ -3,7 +3,6 @@ package advertisingspaceforrent.demo.vo;
 public class LoginForm {
 
     private String username;
-
     private String password;
 
     public String getUsername() {
