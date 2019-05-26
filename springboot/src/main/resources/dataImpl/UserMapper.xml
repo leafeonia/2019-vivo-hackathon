@@ -12,16 +12,16 @@
 
     <resultMap id="User" type="advertisingspaceforrent.demo.po.User"/>
 
-    <insert id="insertMessage">
+    <insert id="insertAccount">
         INSERT INTO user(username,password,email,money)
-        values(#{signUpForm.username}, #{signUpForm.password}, #{signUpForm.email}, 0)
+        values(#{username}, #{password}, #{email}, 0)
     </insert>
 
     <update id="updateMoney">
-        UPDATE user WHERE id=#{updateMoneyForm.userid} SET money=money+#{updateMoneyForm.money}
+        UPDATE user WHERE id=#{userid} SET money=money+#{money}
     </update>
 
     <select id="getRestMoney">
-        SELECT money FROM user WHERE id=#{updateMoneyForm.userid}
+        SELECT money FROM user WHERE id=#{userid}
     </select>
 </mapper>

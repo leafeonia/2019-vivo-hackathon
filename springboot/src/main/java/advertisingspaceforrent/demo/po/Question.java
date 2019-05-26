@@ -8,8 +8,7 @@ public class Question {
     private String choiceC;
     private String choiceD;
     private Integer correct;
-    private String language;
-    private String category;
+    private Integer categoryId;
 
     public Integer getId() {
         return id;
@@ -67,19 +66,11 @@ public class Question {
         this.correct = correct;
     }
 
-    public String getLanguage() {
-        return language;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 }
