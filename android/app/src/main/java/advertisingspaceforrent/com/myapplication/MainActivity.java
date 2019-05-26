@@ -22,6 +22,11 @@ import com.google.gson.GsonBuilder;
 import java.util.HashMap;
 import java.util.Map;
 
+import advertisingspaceforrent.com.myapplication.vo.ResponseVO;
+import advertisingspaceforrent.com.myapplication.vo.User;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -47,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+        usnInput = findViewById(R.id.name);
+        pwdInput = findViewById(R.id.password);
+
         button4signup = (Button)findViewById(R.id.signUp);
         button4signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,30 +80,28 @@ public class MainActivity extends AppCompatActivity {
                 Map<String,String> map = new HashMap<>();
                 map.put("username",usn);
                 map.put("password",pwd);
-                LoginForm loginForm = new LoginForm();
-                loginForm.setUsername(usn);
-                loginForm.setPassword(pwd);
-                Call<ResponseVO> call = apiService.login(loginForm);
+                Call<ResponseVO> call = apiService.login(map);
                 call.enqueue(new Callback<ResponseVO>() {
                     @Override
                     public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
                         if (response.body().getSuccess()) {
                             Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
-                            String json = gson.toJson(response.body().getObj());
+                            String json = gson.toJson(response.body().getContent());
                             User user = gson.fromJson(json,User.class);
-                            Toast.makeText(MainActivity.this,user.getUsername()+":"+user.getPassword(),Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(MainActivity.this, HomepageActivity.class);
+                            startActivity(i);
                         } else {
-                            System.out.println(response.body().getMsg());
+                            System.out.println(response.body().getMessage());
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ResponseVO> call, Throwable t) {
+                        t.printStackTrace();
                         Toast.makeText(MainActivity.this,"失败!",Toast.LENGTH_LONG).show();
                     }
                 });
-                Intent i = new Intent(MainActivity.this, HomepageActivity.class);
-                startActivity(i);
+
             }
         });
 
