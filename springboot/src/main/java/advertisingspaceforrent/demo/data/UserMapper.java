@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserMapper {
-
     User selectUserByUsername(@Param("username") String username);
     int insertMessage(@Param("signUpForm") SignUpForm signUpForm);
 }

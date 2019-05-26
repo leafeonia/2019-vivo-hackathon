@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping("/user/login")
     public ResponseVO login(@RequestBody LoginForm loginForm) {
@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @RequestMapping("/user/signup")
-    public ResponseVO signup(@RequestBody SignUpForm signUpForm) {
-        return userService.signup(signUpForm);
+    public ResponseVO signUp(@RequestBody SignUpForm signUpForm) {
+        return userService.signUp(signUpForm);
     }
 }
