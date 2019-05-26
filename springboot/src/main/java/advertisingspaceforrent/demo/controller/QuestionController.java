@@ -22,7 +22,14 @@ public class QuestionController {
     }
 
     @RequestMapping("question/insert")
-    public ResponseVO insertQuestion(@RequestBody InsertQuestionForm insertQuestionForm){
-        return questionService.insertQuestion(insertQuestionForm);
+    public ResponseVO insertQuestion(
+            @RequestParam String context,
+            @RequestParam String choiceA,
+            @RequestParam String choiceB,
+            @RequestParam String choiceC,
+            @RequestParam String choiceD,
+            @RequestParam Integer correct,
+            @RequestParam Integer categoryId){
+        return questionService.insertQuestion(context, choiceA, choiceB, choiceC, choiceD, correct, categoryId);
     }
 }
