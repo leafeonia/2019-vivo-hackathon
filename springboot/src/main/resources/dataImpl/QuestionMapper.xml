@@ -3,13 +3,13 @@
 <mapper namespace="advertisingspaceforrent.demo.data.QuestionMapper">
 
     <select id="selectQuestionByCategory" resultMap="Question">
-        SELECT * FROM question WHERE category=#{category}
+        SELECT * FROM question WHERE categoryId=#{categoryId}
     </select>
 
     <resultMap id="Question" type="advertisingspaceforrent.demo.po.Question"/>
 
     <insert id="insertQuestion">
-        INSERT INTO question(context,choiceA,choiceB,choiceC,choiceD,correct,language,category)
-        values(#{insertQuestionForm.context},#{insertQuestionForm.choiceA},#{insertQuestionForm.choiceB},#{insertQuestionForm.choiceC},#{insertQuestionForm.choiceD},#{insertQuestionForm.correct},#{insertQuestionForm.language},#{insertQuestionForm.category})
+        INSERT INTO question(context,choiceA,choiceB,choiceC,choiceD,correct,categoryId)
+        values(#{insertQuestionForm.context},#{insertQuestionForm.choiceA},#{insertQuestionForm.choiceB},#{insertQuestionForm.choiceC},#{insertQuestionForm.choiceD},#{insertQuestionForm.correct},#{insertQuestionForm.categoryId})
     </insert>
 </mapper>

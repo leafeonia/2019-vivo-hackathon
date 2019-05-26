@@ -7,8 +7,7 @@ public class InsertQuestionForm {
     private String choiceC;
     private String choiceD;
     private Integer correct;
-    private String language;
-    private String category;
+    private String categoryId;
 
     public String getContext() {
         return context;
@@ -58,19 +57,11 @@ public class InsertQuestionForm {
         this.correct = correct;
     }
 
-    public String getLanguage() {
-        return language;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 }
