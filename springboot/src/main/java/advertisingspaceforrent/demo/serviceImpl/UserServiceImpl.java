@@ -3,6 +3,7 @@ package advertisingspaceforrent.demo.serviceImpl;
 import advertisingspaceforrent.demo.data.UserMapper;
 import advertisingspaceforrent.demo.po.User;
 import advertisingspaceforrent.demo.service.UserService;
+import advertisingspaceforrent.demo.vo.AddMoneyForm;
 import advertisingspaceforrent.demo.vo.LoginForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import advertisingspaceforrent.demo.vo.SignUpForm;
@@ -46,7 +47,25 @@ public class UserServiceImpl implements UserService{
             return ResponseVO.buildSuccess();
         }catch (Exception e){
             e.printStackTrace();
-            return ResponseVO.buildFailure("注册失败");
+            return ResponseVO.buildFailure("注册失败!");
+        }
+    }
+
+    @Override
+    public ResponseVO addMoney(AddMoneyForm addMoneyForm){
+        try {
+            User user = userMapper.selectUserByUserid(addMoneyForm.getUserid());
+            if(null == user){
+                return ResponseVO.buildFailure("用户ID不存在!");
+            }
+            int success = userMapper.addMoney(addMoneyForm);
+            if(success == 0){
+                return ResponseVO.buildFailure("加钱失败!");
+            }
+            return ResponseVO.buildSuccess();
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("加钱失败!");
         }
     }
 }

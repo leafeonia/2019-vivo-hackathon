@@ -1,6 +1,7 @@
 package advertisingspaceforrent.demo.controller;
 
 import advertisingspaceforrent.demo.service.UserService;
+import advertisingspaceforrent.demo.vo.AddMoneyForm;
 import advertisingspaceforrent.demo.vo.LoginForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import advertisingspaceforrent.demo.vo.SignUpForm;
@@ -23,5 +24,10 @@ public class UserController {
     @RequestMapping("/user/signup")
     public ResponseVO signUp(@RequestBody SignUpForm signUpForm) {
         return userService.signUp(signUpForm);
+    }
+
+    @RequestMapping("/user/addmoney")
+    public ResponseVO addMoney(@RequestBody AddMoneyForm addMoneyForm){
+        return userService.addMoney(addMoneyForm);
     }
 }

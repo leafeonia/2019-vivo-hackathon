@@ -6,10 +6,18 @@
         SELECT * FROM user WHERE username=#{username}
     </select>
 
-    <resultMap id="User" type="advertisingspaceforrent.demo.po.User"></resultMap>
+    <select id="selectUserByUserid" resultMap="User">
+        SELECT * FROM user WHERE id=#{userid}
+    </select>
+
+    <resultMap id="User" type="advertisingspaceforrent.demo.po.User"/>
 
     <insert id="insertMessage">
-        INSERT INTO user(username,password,email)
-        values(#{signUpForm.username}, #{signUpForm.password}, #{signUpForm.email})
+        INSERT INTO user(username,password,email,money)
+        values(#{signUpForm.username}, #{signUpForm.password}, #{signUpForm.email}, 0)
     </insert>
+
+    <update id="addMoney">
+        UPDATE user WHERE id=#{addMoneyForm.userid} SET money=money+#{addMoneyForm.money}
+    </update>
 </mapper>
