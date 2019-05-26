@@ -8,6 +8,8 @@ import java.util.List;
 
 @Mapper
 public interface CategoryMapper {
+
     List<Category> selectCategoryByLanguage(@Param("languageId") Integer languageId);
+
     int finishCategoryById(@Param("categoryId") Integer categoryId);
 }

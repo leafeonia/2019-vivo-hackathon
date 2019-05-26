@@ -26,9 +26,9 @@ public class QuestionServiceImpl {
         }
     }
 
-    public ResponseVO insertQuestion(InsertQuestionForm insertQuestionForm){
+    public ResponseVO insertQuestion(String context, String choiceA, String choiceB, String choiceC, String choiceD, Integer correct, Integer categoryId){
         try {
-            int success = questionMapper.insertQuestion(insertQuestionForm);
+            int success = questionMapper.insertQuestion(context, choiceA, choiceB, choiceC, choiceD, correct, categoryId);
             if(success == 0){
                 return ResponseVO.buildFailure("插入题库失败!");
             }

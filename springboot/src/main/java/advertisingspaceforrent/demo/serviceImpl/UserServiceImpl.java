@@ -17,14 +17,13 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserMapper userMapper;
 
-    @Override
-    public ResponseVO login(LoginForm loginForm) {
+    public ResponseVO login(String username, String password) {
         try {
-            User user = userMapper.selectUserByUsername(loginForm.getUsername());
+            User user = userMapper.selectUserByUsername(username);
             if (null == user) {
                 return ResponseVO.buildFailure("用户名不存在!");
             }
-            if (!user.getPassword().equals(loginForm.getPassword())) {
+            if (!user.getPassword().equals(password)) {
                 return ResponseVO.buildFailure("密码错误!");
             }
             return ResponseVO.buildSuccess(user);
@@ -35,13 +34,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ResponseVO signUp(SignUpForm signUpForm) {
+    public ResponseVO signUp(String username, String password, String email) {
         try{
-            User user = userMapper.selectUserByUsername(signUpForm.getUsername());
+            User user = userMapper.selectUserByUsername(username);
             if(null != user){
                 return ResponseVO.buildFailure("用户名已被注册!");
             }
-            int success = userMapper.insertMessage(signUpForm);
+            int success = userMapper.insertAccount(username, password, email);
             if(success == 0){
                 return ResponseVO.buildFailure("插入失败!");
             }
@@ -53,17 +52,17 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ResponseVO updateMoney(UpdateMoneyForm updateMoneyForm){
+    public ResponseVO updateMoney(Integer userid, Integer money){
         try {
-            User user = userMapper.selectUserByUserid(updateMoneyForm.getUserid());
+            User user = userMapper.selectUserByUserid(userid);
             if(null == user){
                 return ResponseVO.buildFailure("用户ID不存在!");
             }
-            int rest = userMapper.getRestMoney(updateMoneyForm);
-            if(rest+updateMoneyForm.getMoney() < 0){
+            int rest = userMapper.getRestMoney(userid);
+            if(rest+money < 0){
                 return ResponseVO.buildFailure("余额不足!");
             }
-            int success = userMapper.updateMoney(updateMoneyForm);
+            int success = userMapper.updateMoney(userid, money);
             if(success == 0){
                 return ResponseVO.buildFailure("加钱失败!");
             }

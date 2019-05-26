@@ -10,6 +10,6 @@
 
     <insert id="insertQuestion">
         INSERT INTO question(context,choiceA,choiceB,choiceC,choiceD,correct,categoryId)
-        values(#{insertQuestionForm.context},#{insertQuestionForm.choiceA},#{insertQuestionForm.choiceB},#{insertQuestionForm.choiceC},#{insertQuestionForm.choiceD},#{insertQuestionForm.correct},#{insertQuestionForm.categoryId})
+        values(#{context},#{choiceA},#{choiceB},#{choiceC},#{choiceD},#{correct},#{categoryId})
     </insert>
 </mapper>

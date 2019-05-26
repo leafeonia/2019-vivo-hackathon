@@ -4,7 +4,7 @@ public class Category {
     private Integer id;
     private String name;
     private Integer languageId;
-    private boolean finished;
+    private Integer finished;
 
     public Integer getId() {
         return id;
@@ -30,11 +30,11 @@ public class Category {
         this.languageId = languageId;
     }
 
-    public boolean isFinished() {
+    public Integer getFinished() {
         return finished;
     }
 
-    public void setFinished(boolean finished) {
+    public void setFinished(Integer finished) {
         this.finished = finished;
     }
 }

@@ -6,16 +6,31 @@ import advertisingspaceforrent.demo.vo.ResponseVO;
 public interface QuestionService {
 
     /**
-     * 获取指定语言、类别的题目
-     * @param categoryId 请求题目表单(类别Id)
-     * @return Question List 题目表单(id、内容、选项、正确答案、类别)
+     * 获取题目
+     * @param
+     * categoryId : 类别Id
+     * @return Question List
      */
     ResponseVO getQuestion(Integer categoryId);
 
     /**
      * 插入题目
-     * @param insertQuestionForm 插入题目表单(内容、选项、正确答案、类别)
+     * @param
+     * context : 内容
+     * choiceA : A选项
+     * choiceB : B选项
+     * choiceC : C选项
+     * choiceD : D选项
+     * correct : 正确答案
+     * categoryId : 类别Id
      * @return None
      */
-    ResponseVO insertQuestion(InsertQuestionForm insertQuestionForm);
+    ResponseVO insertQuestion(
+            String context,
+            String choiceA,
+            String choiceB,
+            String choiceC,
+            String choiceD,
+            Integer correct,
+            Integer categoryId);
 }
