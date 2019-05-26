@@ -12,4 +12,8 @@
         INSERT INTO question(context,choiceA,choiceB,choiceC,choiceD,correct,categoryId)
         values(#{context},#{choiceA},#{choiceB},#{choiceC},#{choiceD},#{correct},#{categoryId})
     </insert>
+
+    <select id="selectQuestionById" resultMap="Question">
+        SELECT * FROM question WHERE id=#{id}
+    </select>
 </mapper>
