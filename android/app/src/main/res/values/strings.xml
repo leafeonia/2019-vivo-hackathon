@@ -29,4 +29,6 @@
     <string name="email_content">Hey there! Take a look at the app developed by Vikesh.\n\nHere is the link to the app:\n\n </string>
     <string name="link"><u>https://github.com/vikesh8860/QuizBook-Apk-File</u></string>
     <string name="last_content">\n\nSteps: click on quizbook.apk and then click on download.</string>
+
+
 </resources>
