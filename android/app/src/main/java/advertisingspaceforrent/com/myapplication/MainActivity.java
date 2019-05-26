@@ -2,16 +2,12 @@ package advertisingspaceforrent.com.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,17 +15,16 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
+import advertisingspaceforrent.com.myapplication.util.APIUtil;
+import advertisingspaceforrent.com.myapplication.util.ToastUtil;
 import advertisingspaceforrent.com.myapplication.vo.ResponseVO;
 import advertisingspaceforrent.com.myapplication.vo.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     Button button4signup;
@@ -71,13 +66,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String usn = usnInput.getText().toString();
                 String pwd = pwdInput.getText().toString();
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://94.191.110.118:8080/")
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                        .build();
-                APIService apiService = retrofit.create(APIService.class);
-                Map<String,String> map = new HashMap<>();
+                APIService apiService = APIUtil.getAPIService();
+                Map<String,String> map = new LinkedHashMap<>();
                 map.put("username",usn);
                 map.put("password",pwd);
                 Call<ResponseVO> call = apiService.login(map);
@@ -89,9 +79,11 @@ public class MainActivity extends AppCompatActivity {
                             String json = gson.toJson(response.body().getContent());
                             User user = gson.fromJson(json,User.class);
                             Intent i = new Intent(MainActivity.this, HomepageActivity.class);
+                            i.putExtra("username",user.getUsername());
+                            i.putExtra("email",user.getEmail());
                             startActivity(i);
                         } else {
-                            System.out.println(response.body().getMessage());
+                            ToastUtil.showToast(MainActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT);
                         }
                     }
 

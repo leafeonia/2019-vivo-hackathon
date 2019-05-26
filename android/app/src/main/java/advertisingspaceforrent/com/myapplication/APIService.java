@@ -9,6 +9,9 @@ import retrofit2.http.QueryMap;
 
 public interface APIService {
 
-    @GET("account/login")
+    @GET("user/login")
     Call<ResponseVO> login(@QueryMap Map<String,String> map);
+
+    @GET("user/signup")
+    Call<ResponseVO> signUp(@QueryMap Map<String,String> map);
 }

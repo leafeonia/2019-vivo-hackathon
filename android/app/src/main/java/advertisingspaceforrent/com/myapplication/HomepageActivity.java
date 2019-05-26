@@ -47,15 +47,14 @@ public class HomepageActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        String nav_header_name = "leafeon";
-        String nav_header_email = "924365630@99.com";
         String nav_header_gender = "Male";
         View header = navigationView.getHeaderView(0);//Used to get a reference to navigation header
+        Intent i = getIntent();
         nav_header_nam = (TextView) header.findViewById(R.id.nav_header_name);
         nav_header_emal = (TextView) header.findViewById(R.id.nav_header_email);
         nav_header_imag = (ImageView) header.findViewById(R.id.nav_header_image);
-        nav_header_nam.setText(nav_header_name);
-        nav_header_emal.setText(nav_header_email);
+        nav_header_nam.setText(i.getStringExtra("username"));
+        nav_header_emal.setText(i.getStringExtra("password"));
         if (nav_header_gender.equals("Male")) {
             nav_header_imag.setImageResource(R.drawable.man);
         } else {
