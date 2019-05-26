@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
     @Override
     public ResponseVO login(LoginForm loginForm) {
@@ -33,13 +33,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ResponseVO signup(SignUpForm signUpForm) {
+    public ResponseVO signUp(SignUpForm signUpForm) {
         try{
             User user = userMapper.selectUserByUsername(signUpForm.getUsername());
             if(null != user){
                 return ResponseVO.buildFailure("用户名已被注册!");
             }
-            userMapper.insertMessage(signUpForm);
+            int success = userMapper.insertMessage(signUpForm);
+            if(success == 0){
+                return ResponseVO.buildFailure("插入失败!");
+            }
             return ResponseVO.buildSuccess();
         }catch (Exception e){
             e.printStackTrace();
