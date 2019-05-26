@@ -115,18 +115,18 @@ public class PlayingActivity extends AppCompatActivity {
          * @setMessage 设置对话框消息提示
          * setXXX方法返回Dialog对象，因此可以链式设置属性
          */
-        final AlertDialog.Builder normalDialog = new AlertDialog.Builder(PlayingActivity.this);
-        normalDialog.setIcon(R.drawable.check);
-        normalDialog.setTitle("Congratulations！");
-        normalDialog.setMessage("You got the correct answer\nNext Question?");
-        normalDialog.setPositiveButton("Next",
+        final AlertDialog.Builder rightDialog = new AlertDialog.Builder(PlayingActivity.this);
+        rightDialog.setIcon(R.drawable.check);
+        rightDialog.setTitle("恭喜你！");
+        rightDialog.setMessage("你做对了！");
+        rightDialog.setPositiveButton("Next",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         toNextQuestion();
                     }
                 });
-        normalDialog.setNegativeButton("Close",
+        rightDialog.setNegativeButton("Close",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -135,11 +135,25 @@ public class PlayingActivity extends AppCompatActivity {
                     }
                 });
         // 显示
-        normalDialog.show();
+        rightDialog.show();
     }
 
     private void showWrongDialog() {
         //TODO
+        final AlertDialog.Builder wrongDialog = new AlertDialog.Builder(PlayingActivity.this);
+        wrongDialog.setCancelable(false);
+        wrongDialog.setIcon(R.drawable.wrong);
+        wrongDialog.setTitle("很遗憾～");
+        wrongDialog.setMessage(getRightAnwser(questions.get(flag).getCorrect()));
+        wrongDialog.setPositiveButton("Next",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        toNextQuestion();
+                    }
+                });
+
+        wrongDialog.show();
     }
 
     private void renderQuestion() {
@@ -175,5 +189,20 @@ public class PlayingActivity extends AppCompatActivity {
             flag++;
             renderQuestion();
         }
+    }
+
+    private String getRightAnwser(int pos){
+        String rightanwser = "";
+        if (pos == 1){
+            rightanwser+="正确答案是A:"+questions.get(this.flag).getChoiceA();
+        } else if (pos == 2){
+            rightanwser+="正确答案是B:"+questions.get(this.flag).getChoiceB();
+        } else if (pos == 3){
+            rightanwser+="正确答案是C:"+questions.get(this.flag).getChoiceC();
+        } else if (pos == 4){
+            rightanwser+="正确答案是D:"+questions.get(this.flag).getChoiceD();
+        }
+
+        return rightanwser;
     }
 }

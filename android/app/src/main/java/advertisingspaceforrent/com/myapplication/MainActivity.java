@@ -27,6 +27,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static Integer USER_ID = 0;
+
     Button button4signup;
     Button button4signin;
     EditText usnInput;
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent i = new Intent(MainActivity.this, HomepageActivity.class);
                             i.putExtra("username",user.getUsername());
                             i.putExtra("email",user.getEmail());
+                            MainActivity.USER_ID = user.getId();
                             startActivity(i);
                         } else {
                             ToastUtil.showToast(MainActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT);
