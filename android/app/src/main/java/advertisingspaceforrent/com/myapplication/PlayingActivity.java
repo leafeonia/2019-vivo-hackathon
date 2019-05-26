@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class PlayingActivity extends AppCompatActivity {
 
+    private Topbar topBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,7 @@ public class PlayingActivity extends AppCompatActivity {
                 showNormalDialog();
             }
         });
+        topBar = (Topbar) findViewById(R.id.topbar);
     }
 
     private void showNormalDialog(){
@@ -65,6 +68,7 @@ public class PlayingActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //...To-do
+
                     }
                 });
         // 显示
