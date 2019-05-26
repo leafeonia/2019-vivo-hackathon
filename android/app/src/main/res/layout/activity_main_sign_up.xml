@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha=".90"
+    android:background="@drawable/background2"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".MainSignUpActivity">
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/image"
+        android:id="@+id/linear_name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/linear_name"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/user"
+            android:drawablePadding="15dp"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:textColor="@color/design_default_color_primary"
+            android:textColorHint="@color/design_default_color_primary"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight=".34"
+            android:textAlignment="center" />
+
+        <!--Add a spinner to select male or female-->
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="15dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:textColor="@color/design_default_color_primary"
+        android:textColorHint="@color/design_default_color_primary"
+        android:textSize="20sp" />
+
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="355dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="112dp"
+            android:drawableLeft="@drawable/ic_pass"
+            android:drawablePadding="15dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:textColor="@color/design_default_color_primary"
+            android:textColorHint="@color/design_default_color_primary"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/show"
+            android:layout_width="46dp"
+            android:layout_height="37dp"
+            android:layout_alignBaseline="@id/password"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="303dp"
+            android:background="#00000000"
+            android:drawableLeft="@drawable/see" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="413dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="112dp"
+            android:drawableLeft="@drawable/ic_pass"
+            android:drawablePadding="15dp"
+            android:hint="Confirm Your Password"
+            android:inputType="textPassword"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:textColor="@color/design_default_color_primary"
+            android:textColorHint="@color/design_default_color_primary"
+            android:textSize="20sp" />
+        <Button
+            android:id="@+id/show2"
+            android:layout_width="46dp"
+            android:layout_height="37dp"
+            android:layout_alignBaseline="@id/confirmPassword"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="353dp"
+            android:background="#00000000"
+            android:drawableLeft="@drawable/see" />
+
+
+        <Button
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="500dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_button"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="Sign    Up"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Help"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:onClick="showHelp"
+            android:drawableLeft="@drawable/help"
+            android:background="?attr/actionBarItemBackground"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
