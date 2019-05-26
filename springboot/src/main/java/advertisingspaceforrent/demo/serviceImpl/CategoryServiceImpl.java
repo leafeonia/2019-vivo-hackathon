@@ -23,4 +23,17 @@ public class CategoryServiceImpl {
             return ResponseVO.buildFailure("类别获取失败!");
         }
     }
+
+    public ResponseVO finishCategory(Integer categoryId){
+        try {
+            int success = categoryMapper.finishCategoryById(categoryId);
+            if(success==0){
+                return ResponseVO.buildFailure("类别完成失败!");
+            }
+            return ResponseVO.buildSuccess();
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("类别完成失败!");
+        }
+    }
 }

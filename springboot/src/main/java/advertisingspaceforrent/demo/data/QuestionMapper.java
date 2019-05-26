@@ -9,6 +9,6 @@ import java.util.List;
 
 @Mapper
 public interface QuestionMapper {
-    List<Question> selectQuestionByCategory(@Param("getQuestionForm") Integer categoryId);
+    List<Question> selectQuestionByCategory(@Param("categoryId") Integer categoryId);
     int insertQuestion(@Param("InsertQuestionForm")InsertQuestionForm insertQuestionForm);
 }

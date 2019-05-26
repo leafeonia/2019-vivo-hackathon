@@ -9,4 +9,11 @@ public interface CategoryService {
      * @return Category List 类别表单(id、名称、语言)
      */
     ResponseVO getCategory(Integer languageId);
+
+    /**
+     * 完成类别
+     * @param categoryId 类别Id
+     * @return None
+     */
+    ResponseVO finishCategory(Integer categoryId);
 }
