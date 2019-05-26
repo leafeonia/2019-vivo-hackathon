@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    tools:context=".PlayingActivity">
+
+
+    <advertisingspaceforrent.com.myapplication.Topbar
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:leftTextColor = "#000000"
+        app:leftText ="Back"
+        app:rightTextColor = "#000000"
+        app:rightText ="NEXT"
+        app:title = "1/40"
+        app:titleTextColor = "#fff"
+        app:titleTextSize = "15sp"
+        >
+
+    </advertisingspaceforrent.com.myapplication.Topbar>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Questions are here!"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:textColor="@color/design_default_color_primary_dark"/>
+
+    <Button
+        android:id="@+id/ButtonA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_button"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="Button A"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/ButtonB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_button"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="Button B"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/ButtonC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_button"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="Button C"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/ButtonD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_button"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="Button D"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+
+</RelativeLayout>
