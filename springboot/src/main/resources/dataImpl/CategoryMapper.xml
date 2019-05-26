@@ -3,12 +3,18 @@
 <mapper namespace="advertisingspaceforrent.demo.data.CategoryMapper">
 
     <select id="selectCategoryByLanguage" resultMap="Category">
-        SELECT * FROM category WHERE languageId=#{languageId}
+        SELECT * FROM category WHERE userid=#{userid} AND languageId=#{languageId}
     </select>
 
+    <select id="selectDonelistByUserAndCategoryId" resultMap="Donelist">
+        SELECT * FROM donelist WHERE categoryId=#{categoryId} AND userId=#{userId}
+    </select>
+
+    <insert id="insertDonelist">
+        INSERT INTO donelist (userId,categoryId)
+        VALUES (#{userId},#{categoryId})
+    </insert>
+
     <resultMap id="Category" type="advertisingspaceforrent.demo.po.Category"/>
-    
-    <update id="finishCategoryById">
-        UPDATE category WHERE id=#{categoryId} SET finished=1
-    </update>
+    <resultMap id="Donelist" type="advertisingspaceforrent.demo.po.Donelist"/>
 </mapper>

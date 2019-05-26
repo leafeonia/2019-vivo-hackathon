@@ -3,17 +3,18 @@
 <mapper namespace="advertisingspaceforrent.demo.data.PuzzleMapper">
 
     <select id="selectPuzzleByUserid">
-        SELECT puzzleid FROM puzzle WHERE userid=#{userid}
+        SELECT puzzleid FROM puzzle_user WHERE userid=#{userid}
     </select>
 
-    <select id="selectPuzzleByUseridAndPuzzle" resultMap="Puzzle">
-        SELECT * FROM puzzle WHERE userid=#{userid} AND puzzleid=#{puzzleid}
+    <select id="selectPuzzleByUseridAndPuzzle" resultMap="PuzzleUser">
+        SELECT * FROM puzzle_user WHERE userid=#{userid} AND puzzleid=#{puzzleid}
     </select>
 
-    <resultMap id="Puzzle" type="advertisingspaceforrent.demo.po.Puzzle"/>
+    <resultMap id="PuzzleUser" type="advertisingspaceforrent.demo.po.PuzzleUser"/>
 
     <insert id="insertPuzzle">
-        INSERT INTO puzzle(userid, puzzleid)
+        INSERT INTO puzzle_user (userid, puzzleid)
         values(#{userid},#{puzzleid})
     </insert>
+
 </mapper>

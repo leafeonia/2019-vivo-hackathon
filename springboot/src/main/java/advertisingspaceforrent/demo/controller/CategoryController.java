@@ -14,12 +14,12 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @RequestMapping("/category/get")
-    public ResponseVO getCategory(@RequestParam("languageId") Integer languageId){
-        return categoryService.getCategory(languageId);
+    public ResponseVO getCategory(@RequestParam("languageId") Integer languageId, @RequestParam("userId") Integer userId){
+        return categoryService.getCategory(languageId,userId);
     }
 
-    @RequestMapping("/category/finished")
-    public ResponseVO finishCategory(@RequestParam("categoryId") Integer categoryId){
-        return categoryService.finishCategory(categoryId);
+    @RequestMapping("/category/finish")
+    public ResponseVO finishCategory(@RequestParam("userId") Integer userId, @RequestParam("categoryId") Integer categoryId) {
+        return categoryService.finishCategory(userId,categoryId);
     }
 }
