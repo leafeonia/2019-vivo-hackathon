@@ -1,6 +1,6 @@
 package advertisingspaceforrent.demo.vo;
 
-public class AddMoneyForm {
+public class UpdateMoneyForm {
 
     private Integer userid;
 

@@ -17,7 +17,11 @@
         values(#{signUpForm.username}, #{signUpForm.password}, #{signUpForm.email}, 0)
     </insert>
 
-    <update id="addMoney">
-        UPDATE user WHERE id=#{addMoneyForm.userid} SET money=money+#{addMoneyForm.money}
+    <update id="updateMoney">
+        UPDATE user WHERE id=#{updateMoneyForm.userid} SET money=money+#{updateMoneyForm.money}
     </update>
+
+    <select id="getRestMoney">
+        SELECT money FROM user WHERE id=#{updateMoneyForm.userid}
+    </select>
 </mapper>

@@ -1,9 +1,9 @@
 package advertisingspaceforrent.demo.service;
 
-import advertisingspaceforrent.demo.vo.AddMoneyForm;
 import advertisingspaceforrent.demo.vo.LoginForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import advertisingspaceforrent.demo.vo.SignUpForm;
+import advertisingspaceforrent.demo.vo.UpdateMoneyForm;
 
 public interface UserService {
 
@@ -23,8 +23,8 @@ public interface UserService {
 
     /**
      * 加钱
-     * @param addMoneyForm 加钱表单
+     * @param updateMoneyForm 加钱表单
      * @return None
      */
-    ResponseVO addMoney(AddMoneyForm addMoneyForm);
+    ResponseVO updateMoney(UpdateMoneyForm updateMoneyForm);
 }

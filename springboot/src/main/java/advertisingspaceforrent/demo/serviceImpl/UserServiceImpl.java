@@ -3,10 +3,11 @@ package advertisingspaceforrent.demo.serviceImpl;
 import advertisingspaceforrent.demo.data.UserMapper;
 import advertisingspaceforrent.demo.po.User;
 import advertisingspaceforrent.demo.service.UserService;
-import advertisingspaceforrent.demo.vo.AddMoneyForm;
+import advertisingspaceforrent.demo.vo.UpdateMoneyForm;
 import advertisingspaceforrent.demo.vo.LoginForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import advertisingspaceforrent.demo.vo.SignUpForm;
+import advertisingspaceforrent.demo.vo.UpdateMoneyForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,13 +53,17 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ResponseVO addMoney(AddMoneyForm addMoneyForm){
+    public ResponseVO updateMoney(UpdateMoneyForm updateMoneyForm){
         try {
-            User user = userMapper.selectUserByUserid(addMoneyForm.getUserid());
+            User user = userMapper.selectUserByUserid(updateMoneyForm.getUserid());
             if(null == user){
                 return ResponseVO.buildFailure("用户ID不存在!");
             }
-            int success = userMapper.addMoney(addMoneyForm);
+            int rest = userMapper.getRestMoney(updateMoneyForm);
+            if(rest+updateMoneyForm.getMoney() < 0){
+                return ResponseVO.buildFailure("余额不足!");
+            }
+            int success = userMapper.updateMoney(updateMoneyForm);
             if(success == 0){
                 return ResponseVO.buildFailure("加钱失败!");
             }
