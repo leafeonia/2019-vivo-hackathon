@@ -2,7 +2,6 @@ package advertisingspaceforrent.demo.serviceImpl;
 
 import advertisingspaceforrent.demo.data.QuestionMapper;
 import advertisingspaceforrent.demo.po.Question;
-import advertisingspaceforrent.demo.vo.GetQuestionForm;
 import advertisingspaceforrent.demo.vo.InsertQuestionForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +13,9 @@ public class QuestionServiceImpl {
     @Autowired
     private QuestionMapper questionMapper;
 
-    public ResponseVO getQuestion(GetQuestionForm getQuestionForm){
+    public ResponseVO getQuestion(Integer categoryId){
         try {
-            List<Question> question = questionMapper.selectQuestionByLanguageAndCategory(getQuestionForm);
+            List<Question> question = questionMapper.selectQuestionByCategory(categoryId);
             if(null == question){
                 return ResponseVO.buildFailure("题目获取失败!");
             }
