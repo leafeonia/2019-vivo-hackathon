@@ -1,6 +1,7 @@
 package advertisingspaceforrent.demo.service;
 
 import advertisingspaceforrent.demo.vo.GetQuestionForm;
+import advertisingspaceforrent.demo.vo.InsertQuestionForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 
 public interface QuestionService {
@@ -11,4 +12,6 @@ public interface QuestionService {
      * @return QuestionForm 题目表单(id、内容、选项、正确答案、语言、类别)
      */
     ResponseVO getQuestion(GetQuestionForm getQuestionForm);
+
+    ResponseVO insertQuestion(InsertQuestionForm insertQuestionForm);
 }

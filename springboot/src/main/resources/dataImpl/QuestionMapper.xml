@@ -7,4 +7,9 @@
     </select>
 
     <resultMap id="Question" type="advertisingspaceforrent.demo.po.Question"/>
+
+    <insert id="insertQuestion">
+        INSERT INTO question(context,choiceA,choiceB,choiceC,choiceD,correct,language,category)
+        values(#{insertQuestionForm.context},#{insertQuestionForm.choiceA},#{insertQuestionForm.choiceB},#{insertQuestionForm.choiceC},#{insertQuestionForm.choiceD},#{insertQuestionForm.correct},#{insertQuestionForm.language},#{insertQuestionForm.category})
+    </insert>
 </mapper>
