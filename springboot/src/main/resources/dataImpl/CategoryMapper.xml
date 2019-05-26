@@ -3,12 +3,8 @@
 <mapper namespace="advertisingspaceforrent.demo.data.CategoryMapper">
 
     <select id="selectCategoryByLanguage" resultMap="Category">
-        SELECT * FROM category WHERE languageId=#{languageId}
+        SELECT * FROM category WHERE userid=#{userid} AND languageId=#{languageId}
     </select>
 
     <resultMap id="Category" type="advertisingspaceforrent.demo.po.Category"/>
-    
-    <update id="finishCategoryById">
-        UPDATE category WHERE id=#{categoryId} SET finished=1
-    </update>
 </mapper>
