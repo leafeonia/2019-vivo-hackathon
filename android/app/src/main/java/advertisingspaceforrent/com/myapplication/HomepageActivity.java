@@ -34,6 +34,7 @@ public class HomepageActivity extends AppCompatActivity
 
     TextView nav_header_nam, nav_header_emal;
     ImageView nav_header_imag;
+    Button b1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,14 @@ public class HomepageActivity extends AppCompatActivity
         } else {
             nav_header_imag.setImageResource(R.drawable.female);
         }
+        b1 = (Button)findViewById(R.id.b1);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomepageActivity.this,QuizListActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -112,4 +121,6 @@ public class HomepageActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

@@ -6,4 +6,7 @@
     <color name="textColor">#000</color>
     <color name="colorButtonNormal">#009688</color>
     <color name="ripple_white">#fcfcfc</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+
 </resources>
