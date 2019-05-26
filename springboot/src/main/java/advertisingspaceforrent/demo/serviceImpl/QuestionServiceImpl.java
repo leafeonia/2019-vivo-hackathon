@@ -2,13 +2,16 @@ package advertisingspaceforrent.demo.serviceImpl;
 
 import advertisingspaceforrent.demo.data.QuestionMapper;
 import advertisingspaceforrent.demo.po.Question;
+import advertisingspaceforrent.demo.service.QuestionService;
 import advertisingspaceforrent.demo.vo.InsertQuestionForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class QuestionServiceImpl {
+@Service
+public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
     private QuestionMapper questionMapper;

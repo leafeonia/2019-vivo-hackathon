@@ -16,12 +16,12 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
-    @RequestMapping("question/get")
+    @RequestMapping("/question/get")
     public ResponseVO getQuestion(@RequestParam("categoryId") Integer categoryId){
         return questionService.getQuestion(categoryId);
     }
 
-    @RequestMapping("question/insert")
+    @RequestMapping("/question/insert")
     public ResponseVO insertQuestion(
             @RequestParam String context,
             @RequestParam String choiceA,
