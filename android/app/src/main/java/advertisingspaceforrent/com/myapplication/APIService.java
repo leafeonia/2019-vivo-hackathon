@@ -19,4 +19,7 @@ public interface APIService {
     @GET("category/get")
     Call<ResponseVO> getQuizList(@Query("languageId") Integer languageId);
 //    Call<ResponseVO> getQuizList(@QueryMap Map<String,String> map);
+
+    @GET("user/updatemoney")
+    Call<ResponseVO> updateMoney(@QueryMap Map<String,String> map);
 }
