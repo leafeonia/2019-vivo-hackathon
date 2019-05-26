@@ -3,7 +3,7 @@
 <mapper namespace="advertisingspaceforrent.demo.data.CategoryMapper">
 
     <select id="selectCategoryByLanguage" resultMap="Category">
-        SELECT * FROM category WHERE userid=#{userid} AND languageId=#{languageId}
+        SELECT * FROM category WHERE languageId=#{languageId}
     </select>
 
     <select id="selectDonelistByUserAndCategoryId" resultMap="Donelist">

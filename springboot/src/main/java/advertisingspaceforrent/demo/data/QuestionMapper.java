@@ -18,4 +18,6 @@ public interface QuestionMapper {
                        @Param("choiceD") String choiceD,
                        @Param("correct") Integer correct,
                        @Param("categoryId") Integer categoryId);
+
+    Question selectQuestionById(@Param("id") Integer id);
 }
