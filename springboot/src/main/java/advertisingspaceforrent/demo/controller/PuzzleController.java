@@ -17,4 +17,11 @@ public class PuzzleController {
     public ResponseVO getPuzzle(@RequestParam("userid") Integer userid){
         return puzzleService.getPuzzle(userid);
     }
+
+    @RequestMapping("/puzzle/add")
+    public ResponseVO addPuzzle(
+            @RequestParam("userid") Integer userid,
+            @RequestParam("puzzleid") Integer puzzleid){
+        return puzzleService.addPuzzle(userid, puzzleid);
+    }
 }

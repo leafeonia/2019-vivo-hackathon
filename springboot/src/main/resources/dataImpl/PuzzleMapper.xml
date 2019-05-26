@@ -5,4 +5,15 @@
     <select id="selectPuzzleByUserid">
         SELECT puzzleid FROM puzzle WHERE userid=#{userid}
     </select>
+
+    <select id="selectPuzzleByUseridAndPuzzle" resultMap="Puzzle">
+        SELECT * FROM puzzle WHERE userid=#{userid} AND puzzleid=#{puzzleid}
+    </select>
+
+    <resultMap id="Puzzle" type="advertisingspaceforrent.demo.po.Puzzle"/>
+
+    <insert id="insertPuzzle">
+        INSERT INTO puzzle(userid, puzzleid)
+        values(#{userid},#{puzzleid})
+    </insert>
 </mapper>

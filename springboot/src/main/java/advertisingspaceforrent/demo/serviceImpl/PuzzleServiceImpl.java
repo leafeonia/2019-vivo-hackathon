@@ -1,6 +1,7 @@
 package advertisingspaceforrent.demo.serviceImpl;
 
 import advertisingspaceforrent.demo.data.PuzzleMapper;
+import advertisingspaceforrent.demo.po.Puzzle;
 import advertisingspaceforrent.demo.service.PuzzleService;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,24 @@ public class PuzzleServiceImpl implements PuzzleService {
         }catch (Exception e){
             e.printStackTrace();
             return ResponseVO.buildFailure("图鉴获取失败!");
+        }
+    }
+
+    public ResponseVO addPuzzle(Integer userid, Integer puzzleid){
+        try {
+            Puzzle puzzle = puzzleMapper.selectPuzzleByUseridAndPuzzle(userid, puzzleid);
+            if(null != puzzle){
+                return ResponseVO.buildFailure("该图鉴已获得!");
+            }
+
+            int success = puzzleMapper.insertPuzzle(userid, puzzleid);
+            if(success == 0){
+                return ResponseVO.buildFailure("图鉴增加失败!");
+            }
+            return ResponseVO.buildSuccess();
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("图鉴增加失败!");
         }
     }
 }
