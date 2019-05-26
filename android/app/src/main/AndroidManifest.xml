@@ -9,11 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainSignUpActivity"></activity>
-        <activity android:name=".HelpActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".HomepageActivity" />
         <activity android:name=".PlayingActivity" />
         <activity
-            android:name=".HomepageActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -22,8 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".QuizListActivity"></activity>
+        <activity android:name=".QuizListActivity"
+            android:theme="@style/AppTheme"
+            android:label="quiz list">
+        </activity>
     </application>
 
 </manifest>
