@@ -5,6 +5,7 @@ import advertisingspaceforrent.demo.po.User;
 import advertisingspaceforrent.demo.service.UserService;
 import advertisingspaceforrent.demo.vo.LoginForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
+import advertisingspaceforrent.demo.vo.SignUpForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +32,18 @@ public class UserServiceImpl implements UserService{
         }
     }
 
+    @Override
+    public ResponseVO signup(SignUpForm signUpForm) {
+        try{
+            User user = userMapper.selectUserByUsername(signUpForm.getUsername());
+            if(null != user){
+                return ResponseVO.buildFailure("用户名已被注册!");
+            }
+            userMapper.insertMessage(signUpForm);
+            return ResponseVO.buildSuccess();
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("注册失败");
+        }
+    }
 }

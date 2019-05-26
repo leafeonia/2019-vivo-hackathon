@@ -1,22 +1,9 @@
-package advertisingspaceforrent.demo.po;
+package advertisingspaceforrent.demo.vo;
 
-public class User {
-
-    private Integer id;
-
+public class SignUpForm {
     private String username;
-
     private String password;
-
     private String email;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
