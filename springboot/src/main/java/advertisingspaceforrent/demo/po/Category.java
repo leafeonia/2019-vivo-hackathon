@@ -4,6 +4,7 @@ public class Category {
     private Integer id;
     private String name;
     private Integer languageId;
+    private boolean finished;
 
     public Integer getId() {
         return id;
@@ -27,5 +28,13 @@ public class Category {
 
     public void setLanguageId(Integer languageId) {
         this.languageId = languageId;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 }

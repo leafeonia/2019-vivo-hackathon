@@ -17,4 +17,9 @@ public class CategoryController {
     public ResponseVO getCategory(@RequestParam("languageId") Integer languageId){
         return categoryService.getCategory(languageId);
     }
+
+    @RequestMapping("category/finished")
+    public ResponseVO finishCategory(@RequestParam("categoryId") Integer categoryId){
+        return categoryService.finishCategory(categoryId);
+    }
 }

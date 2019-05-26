@@ -1,7 +1,6 @@
 package advertisingspaceforrent.demo.po;
 
 public class User {
-
     private Integer id;
     private String username;
     private String password;
