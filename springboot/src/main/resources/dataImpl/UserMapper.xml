@@ -8,4 +8,8 @@
 
     <resultMap id="User" type="advertisingspaceforrent.demo.po.User"></resultMap>
 
+    <insert id="insertMessage">
+        INSERT INTO user(username,password,email)
+        values(#{signUpForm.username}, #{signUpForm.password}, #{signUpForm.email})
+    </insert>
 </mapper>
