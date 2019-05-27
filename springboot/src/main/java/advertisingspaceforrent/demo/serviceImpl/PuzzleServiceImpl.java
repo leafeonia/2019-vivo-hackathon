@@ -3,10 +3,12 @@ package advertisingspaceforrent.demo.serviceImpl;
 import advertisingspaceforrent.demo.data.PuzzleMapper;
 import advertisingspaceforrent.demo.po.PuzzleUser;
 import advertisingspaceforrent.demo.service.PuzzleService;
+import advertisingspaceforrent.demo.vo.IntegerWrapped;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -21,7 +23,13 @@ public class PuzzleServiceImpl implements PuzzleService {
             if(null == puzzle){
                 return ResponseVO.buildFailure("图鉴获取失败!");
             }
-            return ResponseVO.buildSuccess(puzzle);
+            List<IntegerWrapped> res = new ArrayList<>();
+            for (Integer i : puzzle) {
+                IntegerWrapped integerWrapped = new IntegerWrapped();
+                integerWrapped.setInteger(i);
+                res.add(integerWrapped);
+            }
+            return ResponseVO.buildSuccess(res);
         }catch (Exception e){
             e.printStackTrace();
             return ResponseVO.buildFailure("图鉴获取失败!");

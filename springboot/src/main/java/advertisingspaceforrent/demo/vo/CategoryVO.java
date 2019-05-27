@@ -5,7 +5,7 @@ public class CategoryVO {
     private Integer id;
     private String name;
     private Integer languageId;
-    private boolean isFinish;
+    private Integer isFinish;
 
     public Integer getId() {
         return id;
@@ -31,11 +31,11 @@ public class CategoryVO {
         this.languageId = languageId;
     }
 
-    public boolean isFinish() {
+    public Integer getFinish() {
         return isFinish;
     }
 
-    public void setFinish(boolean finish) {
+    public void setFinish(Integer finish) {
         isFinish = finish;
     }
 }
