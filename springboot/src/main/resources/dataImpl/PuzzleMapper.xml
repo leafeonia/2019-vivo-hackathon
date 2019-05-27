@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="advertisingspaceforrent.demo.data.PuzzleMapper">
+
+    <select id="selectPuzzleByUserid">
+        SELECT puzzleid FROM puzzle_user WHERE userid=#{userid}
+    </select>
+
+    <select id="selectPuzzleByUseridAndPuzzle" resultMap="PuzzleUser">
+        SELECT * FROM puzzle_user WHERE userid=#{userid} AND puzzleid=#{puzzleid}
+    </select>
+
+    <resultMap id="PuzzleUser" type="advertisingspaceforrent.demo.po.PuzzleUser"/>
+
+    <insert id="insertPuzzle">
+        INSERT INTO puzzle_user (userid, puzzleid)
+        values(#{userid},#{puzzleid})
+    </insert>
+
+</mapper>

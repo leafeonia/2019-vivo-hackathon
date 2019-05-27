@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".PuzzleActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/puzzle1"
+                android:layout_width="@dimen/puzzle_size"
+                android:layout_height="@dimen/puzzle_size"
+                android:src="@drawable/puzzle_0" />
+
+            <ImageView
+                android:id="@+id/puzzle2"
+                android:layout_width="@dimen/puzzle_size"
+                android:layout_height="@dimen/puzzle_size"
+                android:layout_toEndOf="@+id/puzzle1"
+                android:src="@drawable/puzzle_1"/>
+
+            <ImageView
+                android:id="@+id/puzzle3"
+                android:layout_width="@dimen/puzzle_size"
+                android:layout_height="@dimen/puzzle_size"
+                android:layout_toEndOf="@+id/puzzle2"
+                android:src="@drawable/puzzle_2"/>
+
+            <ImageView
+            android:id="@+id/puzzle4"
+            android:layout_width="@dimen/puzzle_size"
+            android:layout_height="@dimen/puzzle_size"
+            android:layout_below="@+id/puzzle1"
+            android:src="@drawable/puzzle_3"/>
+
+            <ImageView
+                android:id="@+id/puzzle5"
+                android:layout_width="@dimen/puzzle_size"
+                android:layout_height="@dimen/puzzle_size"
+                android:layout_toRightOf="@id/puzzle4"
+                android:layout_below="@+id/puzzle2"
+                android:src="@drawable/puzzle_4" />
+
+            <ImageView
+                android:id="@+id/puzzle6"
+                android:layout_width="@dimen/puzzle_size"
+                android:layout_height="@dimen/puzzle_size"
+                android:layout_toEndOf="@+id/puzzle5"
+                android:layout_below="@id/puzzle3"
+                android:src="@drawable/puzzle_5"/>
+
+            <ImageView
+                android:id="@+id/puzzle7"
+                android:layout_width="@dimen/puzzle_size"
+                android:layout_height="@dimen/puzzle_size"
+                android:layout_below="@+id/puzzle4"
+                android:src="@drawable/puzzle_6"/>
+
+            <ImageView
+                android:id="@+id/puzzle8"
+                android:layout_width="@dimen/puzzle_size"
+                android:layout_height="@dimen/puzzle_size"
+                android:layout_toRightOf="@id/puzzle7"
+                android:layout_below="@+id/puzzle5"
+                android:src="@drawable/puzzle_7" />
+
+            <ImageView
+                android:id="@+id/puzzle9"
+                android:layout_width="@dimen/puzzle_size"
+                android:layout_height="@dimen/puzzle_size"
+                android:layout_toEndOf="@+id/puzzle8"
+                android:layout_below="@id/puzzle6"
+                android:src="@drawable/puzzle_8"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

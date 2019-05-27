@@ -8,20 +8,42 @@
     tools:context=".PlayingActivity">
 
 
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Back"
+        android:id="@+id/quit"
+        android:background="#0000"/>
     <advertisingspaceforrent.com.myapplication.Topbar
         android:id="@+id/topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:leftTextColor = "#000000"
-        app:leftText ="Back"
         app:rightTextColor = "#000000"
-        app:rightText ="NEXT"
-        app:title = "1/40"
-        app:titleTextColor = "#fff"
-        app:titleTextSize = "15sp"
         >
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:id="@+id/topbar_leftText"-->
+            <!--android:text="back"-->
+            <!--android:background="#00000000"/>-->
+
+        <TextView
+            android:id="@+id/topbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1/40"
+            android:textColor = "#000000"
+            android:textSize = "20sp"
+            android:gravity="center"/>
 
     </advertisingspaceforrent.com.myapplication.Topbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -39,11 +61,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="320dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_button"
         android:foreground="?attr/selectableItemBackground"
         android:text="Button A"
+        android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="20sp" />
     <Button
@@ -51,11 +74,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="380dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_button"
         android:foreground="?attr/selectableItemBackground"
         android:text="Button B"
+        android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="20sp" />
     <Button
@@ -63,11 +87,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="440dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_button"
         android:foreground="?attr/selectableItemBackground"
         android:text="Button C"
+        android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="20sp" />
     <Button
@@ -75,12 +100,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="500dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_button"
         android:foreground="?attr/selectableItemBackground"
         android:text="Button D"
+        android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="20sp" />
+    </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
