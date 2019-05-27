@@ -7,7 +7,7 @@
     </select>
 
     <select id="selectDonelistByUserAndCategoryId" resultMap="Donelist">
-        SELECT * FROM donelist WHERE categoryId=#{categoryId} AND userId=#{userId}
+        SELECT * FROM donelist WHERE categoryid=#{categoryId} AND userid=#{userId}
     </select>
 
     <insert id="insertDonelist">
