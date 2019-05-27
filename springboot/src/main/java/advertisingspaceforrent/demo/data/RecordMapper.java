@@ -16,4 +16,7 @@ public interface RecordMapper {
     int deleteRecord(@Param("userId") Integer userId,
                      @Param("questionId") Integer questionId);
 
+    Integer selectRecord(@Param("userId") Integer userId,
+                         @Param("questionId") Integer questionId);
+
 }

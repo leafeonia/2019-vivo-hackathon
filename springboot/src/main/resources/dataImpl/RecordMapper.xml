@@ -14,5 +14,9 @@
     <delete id="deleteRecord">
         DELETE FROM record WHERE userId=#{userId} AND questionId=#{questionId}
     </delete>
+
+    <select id="selectRecord" resultType="java.lang.Integer">
+        SELECT userId FROM record WHERE userId=#{userId} AND questionId=#{questionId}
+    </select>
     
 </mapper>
