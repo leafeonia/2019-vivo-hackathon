@@ -26,12 +26,12 @@ public interface APIService {
     @GET("question/get")
     Call<ResponseVO> getQuestion(@Query("categoryId") Integer categoryId);
 
-    @GET("user/updatemoney")
-    Call<ResponseVO> addMoney(@QueryMap Map<String,String> map);
-
     @GET("record/add")
     Call<ResponseVO> addRecord(@QueryMap Map<String,String> map);
 
     @GET("record/get")
     Call<ResponseVO> getRecordByUserId(@Query("userId") Integer userId);
+
+    @GET("puzzle/add")
+    Call<ResponseVO> addPuzzle(@Query("userid")Integer userId);
 }
