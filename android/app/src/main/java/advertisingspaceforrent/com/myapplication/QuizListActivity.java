@@ -40,6 +40,8 @@ public class QuizListActivity extends AppCompatActivity {
     private ListView mquizList;
     private Integer mLanguageId;
     List<CategoryVO> cateList;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,9 @@ public class QuizListActivity extends AppCompatActivity {
                 Intent i = new Intent(QuizListActivity.this, PlayingActivity.class);
                 i.putExtra("categoryId",cateList.get(arg2).getId());
                 i.putExtra("hasFinished",cateList.get(arg2).getFinish() == 1 ? true : false);
+                Log.i("QuizListActivity","onCreate");
                 startActivity(i);
+                finish();
             }
         });
 
@@ -92,6 +96,8 @@ public class QuizListActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 //    @Override
 //    protected void onResume() {

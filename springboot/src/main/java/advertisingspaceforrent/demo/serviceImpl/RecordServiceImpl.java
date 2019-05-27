@@ -37,10 +37,15 @@ public class RecordServiceImpl implements RecordService{
     @Override
     public ResponseVO addRecord(Integer userId, Integer questionId) {
         try {
-            if (recordMapper.insertRecord(userId,questionId) == 1) {
-                return ResponseVO.buildSuccess();
+            Integer i = recordMapper.selectRecord(userId,questionId);
+            if (i == null) {
+                if (recordMapper.insertRecord(userId, questionId) == 1) {
+                    return ResponseVO.buildSuccess();
+                } else {
+                    return ResponseVO.buildFailure("添加错题失败!");
+                }
             } else {
-                return ResponseVO.buildFailure("添加错题失败!");
+                return ResponseVO.buildFailure("已在错题集中");
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -40,7 +40,7 @@ public class ResultActivity extends AppCompatActivity {
         button4Quit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ResultActivity.this, QuizListActivity.class));
+                startActivity(new Intent(ResultActivity.this, HomepageActivity.class));
             }
         });
         if (!allCorrect){
