@@ -13,8 +13,13 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -47,7 +52,7 @@ public class QuizListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 Intent i = new Intent(QuizListActivity.this, PlayingActivity.class);
                 i.putExtra("categoryId",cateList.get(arg2).getId());
-                i.putExtra("hasFinished",cateList.get(arg2).isFinish());
+                i.putExtra("hasFinished",cateList.get(arg2).getFinish() == 1 ? true : false);
                 startActivity(i);
             }
         });
@@ -60,10 +65,19 @@ public class QuizListActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
                 if (response.body().getSuccess()) {
-                    Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
+                    GsonBuilder gsonBuilder = new GsonBuilder();
+                    gsonBuilder.registerTypeAdapter(Double.class, new JsonSerializer<Double>() {
+                        public JsonElement serialize(Double src, Type typeOfSrc,
+                                                     JsonSerializationContext context) {
+                            Integer value = (int)Math.round(src);
+                            return new JsonPrimitive(value);
+                        }
+                    });
+                    Gson gson = gsonBuilder.create();
                     String json = gson.toJson(response.body().getContent());
+                    Log.i("***TEST***",json);
                     cateList = gson.fromJson(json, new TypeToken<List<CategoryVO>>() {}.getType());
-                    Log.i("***TEST***",cateList.get(0).getName());
+                    Log.i("***TEST***",cateList.get(0).getFinish()==1 ? "true" : "false");
                     mquizList.setAdapter(new QuizAdapter(cateList,QuizListActivity.this));
                 } else {
                     ToastUtil.showToast(QuizListActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT);

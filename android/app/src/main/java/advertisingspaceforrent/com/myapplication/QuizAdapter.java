@@ -56,7 +56,7 @@ public class QuizAdapter extends BaseAdapter {
             viewHolder = (QuizAdapter.ViewHolder) convertView.getTag();
         }
         viewHolder.tv_quizName.setText(quizs.get(position).getName());
-        String completed = quizs.get(position).isFinish() ? "completed" : "not completed";
+        String completed = quizs.get(position).getFinish()==1 ? "completed" : "not completed";
         viewHolder.tv_quizCompleted.setText(completed);
         if(completed.equals("not completed")){
             viewHolder.tv_quizCompleted.setTextColor(android.graphics.Color.RED);

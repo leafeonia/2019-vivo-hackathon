@@ -18,10 +18,10 @@
     </insert>
 
     <update id="updateMoney">
-        UPDATE user WHERE id=#{userid} SET money=money+#{money}
+        UPDATE user SET money=money+#{money} WHERE id=#{userid}
     </update>
 
-    <select id="getRestMoney">
+    <select id="getRestMoney" resultType="java.lang.Integer">
         SELECT money FROM user WHERE id=#{userid}
     </select>
 </mapper>
