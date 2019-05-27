@@ -113,11 +113,11 @@ public class HomepageActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-       /* if (id == R.id.nav_scorecard) {
-            Intent intent = new Intent(this, ScoreCard.class);
+        if (id == R.id.nav_scorecard) {
+            Intent intent = new Intent(this, PuzzleActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_Setting) {
+        } /*else if (id == R.id.nav_Setting) {
             //  startActivity(new Intent(this,Setting.class));
             startActivity(new Intent(this, Setting_activity.class));
 

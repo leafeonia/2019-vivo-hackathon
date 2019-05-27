@@ -68,6 +68,24 @@ public class ResultActivity extends AppCompatActivity {
                 }
             });
 
+            call = apiService.updatePuzzle(userid);
+            call.enqueue(new Callback<ResponseVO>() {
+                @Override
+                public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
+                    if (response.body().getSuccess()) {
+
+                    } else {
+                        ToastUtil.showToast(ResultActivity.this,response.body().getMessage(), Toast.LENGTH_SHORT);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseVO> call, Throwable t) {
+                    t.printStackTrace();
+                    ToastUtil.showToast(ResultActivity.this,"失败!",Toast.LENGTH_LONG);
+                }
+            });
+
         }
     }
 }
