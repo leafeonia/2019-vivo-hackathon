@@ -1,10 +1,9 @@
-package advertisingspaceforrent.com.myapplication.vo;
+package advertisingspaceforrent.demo.po;
 
 public class Category {
-    public Integer id;
-    public String name;
-    public Integer languageId;
-    public Integer finished;
+    private Integer id;
+    private String name;
+    private Integer languageId;
 
     public Integer getId() {
         return id;
@@ -28,13 +27,5 @@ public class Category {
 
     public void setLanguageId(Integer languageId) {
         this.languageId = languageId;
-    }
-
-    public Integer getFinished() {
-        return finished;
-    }
-
-    public void setFinished(Integer finished) {
-        this.finished = finished;
     }
 }
