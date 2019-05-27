@@ -1,6 +1,5 @@
 package advertisingspaceforrent.demo.service;
 
-import advertisingspaceforrent.demo.vo.InsertQuestionForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 
 public interface QuestionService {

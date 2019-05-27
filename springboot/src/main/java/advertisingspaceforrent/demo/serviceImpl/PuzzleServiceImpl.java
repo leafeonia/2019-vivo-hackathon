@@ -1,7 +1,6 @@
 package advertisingspaceforrent.demo.serviceImpl;
 
 import advertisingspaceforrent.demo.data.PuzzleMapper;
-import advertisingspaceforrent.demo.po.PuzzleUser;
 import advertisingspaceforrent.demo.service.PuzzleService;
 import advertisingspaceforrent.demo.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
