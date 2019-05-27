@@ -24,4 +24,7 @@ public interface APIService {
 
     @GET("question/get")
     Call<ResponseVO> getQuestion(@Query("categoryId") Integer categoryId);
+
+    @GET("record/get")
+    Call<ResponseVO> getRecordByUserId(@Query("userId") Integer userId);
 }

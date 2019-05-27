@@ -4,15 +4,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".WrongListActivity"></activity>
+        <activity android:name=".ResultActivity" />
         <activity android:name=".MainSignUpActivity" />
         <activity android:name=".HomepageActivity" />
         <activity android:name=".PlayingActivity" />
@@ -31,6 +31,5 @@
             android:label="quiz list"
             android:theme="@style/AppTheme" />
     </application>
-
 
 </manifest>

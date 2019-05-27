@@ -51,7 +51,7 @@ public class QuizListActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        List<Category> cat; // = getfromserver
+        List<Category> cat = new ArrayList<>(); // = getfromserver
         Intent intent = getIntent();
         mLanguageId = intent.getIntExtra("languageId",1);
 //        Toast.makeText(QuizListActivity.this,"lan ID" + Integer.toString(languageId),Toast.LENGTH_SHORT).show();
@@ -67,7 +67,6 @@ public class QuizListActivity extends AppCompatActivity {
                     Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
                     String json = gson.toJson(response.body().getContent());
                     cateList = gson.fromJson(json, new TypeToken<List<Category>>() {}.getType());
-                    Log.i("***TEST***",cateList.get(0).getName());
                 } else {
                     ToastUtil.showToast(QuizListActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT);
                 }
