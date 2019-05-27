@@ -1,8 +1,8 @@
 
-xsquid:S00116F"[Rename this field "tv_quizCompleted" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤†Èûÿÿÿÿ
 Jsquid:S1659F".Declare "tv_quizCompleted" on a separate line.(¤†Èûÿÿÿÿ
-Tsquid:UselessImportCheck"0Remove this unused import 'android.media.Image'.(ëïøÂ
-rsquid:S00116F"URename this field "tv_quiz_nr" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤†Èûÿÿÿÿ
+Dsquid:S1659F"(Declare "tv_quiz_nr" on a separate line.(¤†Èûÿÿÿÿ
 bsquid:CommentedOutCodeLineA"<This block of commented-out lines of code should be removed.(£²˜»
 ssquid:S00116F"VRename this field "tv_quizName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤†Èûÿÿÿÿ
-Dsquid:S1659F"(Declare "tv_quiz_nr" on a separate line.(¤†Èûÿÿÿÿ
+xsquid:S00116F"[Rename this field "tv_quizCompleted" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤†Èûÿÿÿÿ
+rsquid:S00116F"URename this field "tv_quiz_nr" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤†Èûÿÿÿÿ
+Tsquid:UselessImportCheck"0Remove this unused import 'android.media.Image'.(ëïøÂ

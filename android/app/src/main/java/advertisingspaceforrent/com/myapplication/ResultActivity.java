@@ -31,6 +31,8 @@ public class ResultActivity extends AppCompatActivity {
         tv_result = findViewById(R.id.tv_result);
         tv_addMoney = findViewById(R.id.tv_addMoney);
         tv_addPuzzle = findViewById(R.id.tv_addPuzzle);
+        allCorrect = getIntent().getBooleanExtra("finish",false);
+        hasBeenCompleted = getIntent().getBooleanExtra("hasFinished",false);
         if (!allCorrect){
             tv_result.setText("Keep trying !");
             tv_result.setTextColor(android.graphics.Color.RED);

@@ -1,10 +1,14 @@
 
-osquid:S00117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³âìÜþÿÿÿÿ
-Esquid:S1481…"-Remove this unused "inflater" local variable.(Ü¤í÷
-hsquid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(ÖöÈJ8ŒÏ®£¯-
-nsquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(°Ä®šùÿÿÿÿ8ŒÏ®£¯-
-Tsquid:S1854…"<Remove this useless assignment to local variable "inflater".(Ü¤í÷
-Fsquid:S1148_"#Use a logger to log this exception.(¯Óí‘úÿÿÿÿ8ŒÏ®£¯-
-hsquid:CommentedOutCodeLine†"<This block of commented-out lines of code should be removed.(Ž×°¹øÿÿÿÿ
-hsquid:CommentedOutCodeLine/"<This block of commented-out lines of code should be removed.(ê”ïk8ŒÏ®£¯-
-nsquid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(É´½±ÿÿÿÿÿ8ŒÏ®£¯-
+Gsquid:S1481Z")Remove this unused "user" local variable.(¿§·°8êžãŸ¯-
+vsquid:S00117‡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³âìÜþÿÿÿÿ8ú´×Ÿ¯-
+[squid:S1854Š"<Remove this useless assignment to local variable "inflater".(Ü¤í÷8ú´×Ÿ¯-
+Vsquid:S1854Z"8Remove this useless assignment to local variable "user".(¿§·°8êžãŸ¯-
+hsquid:CommentedOutCodeLine4"<This block of commented-out lines of code should be removed.(ê”ïk8´¯ó˜¯-
+osquid:CommentedOutCodeLine‹"<This block of commented-out lines of code should be removed.(Ž×°¹øÿÿÿÿ8ú´×Ÿ¯-
+Lsquid:S1481Š"-Remove this unused "inflater" local variable.(Ü¤í÷8ú´×Ÿ¯-
+[
+squid:S106^"9Replace this use of System.out or System.err by a logger.(¨‹äûÿÿÿÿ8ú´×Ÿ¯-
+hsquid:CommentedOutCodeLine,"<This block of commented-out lines of code should be removed.(ÖöÈJ8´¯ó˜¯-
+nsquid:CommentedOutCodeLine2"<This block of commented-out lines of code should be removed.(°Ä®šùÿÿÿÿ8´¯ó˜¯-
+nsquid:CommentedOutCodeLine/"<This block of commented-out lines of code should be removed.(É´½±ÿÿÿÿÿ8´¯ó˜¯-
+Fsquid:S1148d"#Use a logger to log this exception.(¯Óí‘úÿÿÿÿ8ûÄµ ¯-
