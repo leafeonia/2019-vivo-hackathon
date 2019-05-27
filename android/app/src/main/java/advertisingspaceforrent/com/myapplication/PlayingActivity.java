@@ -82,13 +82,15 @@ public class PlayingActivity extends AppCompatActivity {
                 judge(4);
             }
         });
+
+        topBar = (Topbar) findViewById(R.id.topbar);
+
         button4Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                startActivity(new Intent(PlayingActivity.this,QuizListActivity.class));
             }
         });
-        topBar = (Topbar) findViewById(R.id.topbar);
 
         categoryId = getIntent().getIntExtra("categoryId",0);
         hasFinished = getIntent().getBooleanExtra("hasFinished",false);

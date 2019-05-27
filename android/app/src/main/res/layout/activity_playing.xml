@@ -8,6 +8,11 @@
     tools:context=".PlayingActivity">
 
 
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Back"
+        android:/>
     <advertisingspaceforrent.com.myapplication.Topbar
         android:id="@+id/topbar"
         android:layout_width="match_parent"
