@@ -54,28 +54,28 @@
 
 
 
-        <TextView
-            android:id="@+id/tv_nr_problems"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:text="题数"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="@+id/tv_quizName"
-            app:layout_constraintTop_toBottomOf="@+id/tv_quizName" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_nr_problems"-->
+            <!--android:textSize="18sp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/medium_margin"-->
+            <!--android:text="题数"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--app:layout_constraintStart_toStartOf="@+id/tv_quizName"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/tv_quizName" />-->
 
-        <TextView
-            android:id="@+id/tv_nr_problems_value"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/medium_margin"
-            android:maxLength="40"
-            android:textColor="@color/white"
-            app:layout_constraintBaseline_toBaselineOf="@+id/tv_nr_problems"
-            app:layout_constraintStart_toEndOf="@+id/tv_nr_problems"
-            tools:text="28" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_nr_problems_value"-->
+            <!--android:textSize="18sp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="@dimen/medium_margin"-->
+            <!--android:maxLength="40"-->
+            <!--android:textColor="@color/white"-->
+            <!--app:layout_constraintBaseline_toBaselineOf="@+id/tv_nr_problems"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/tv_nr_problems"-->
+            <!--tools:text="28" />-->
 
 
         <TextView
@@ -84,10 +84,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
-            android:text="状态"
+            android:text="状态:"
             android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="@+id/tv_nr_problems"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nr_problems" />
+            app:layout_constraintStart_toStartOf="@+id/tv_quizName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_quizName" />
 
         <TextView
             android:id="@+id/tv_completion_status"
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:textColor="#009688"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_completed_label"
-            app:layout_constraintStart_toStartOf="@+id/tv_nr_problems_value"
+            app:layout_constraintStart_toEndOf="@+id/tv_completed_label"
             tools:text="已完成" />
 
 

@@ -49,7 +49,6 @@ public class QuizAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.quiz_item,parent,false);
             viewHolder.tv_quizName =(TextView)convertView.findViewById(R.id.tv_quizName);
             viewHolder.tv_quizCompleted = (TextView)convertView.findViewById(R.id.tv_completion_status) ;
-            viewHolder.tv_quiz_nr = (TextView)convertView.findViewById(R.id.tv_nr_problems_value);
             viewHolder.img = (ImageView) convertView.findViewById(R.id.iv_enter_or_tick);
             convertView.setTag(viewHolder);
         }
@@ -59,7 +58,6 @@ public class QuizAdapter extends BaseAdapter {
         viewHolder.tv_quizName.setText(quizs.get(position).getName());
         String completed = quizs.get(position).isFinish() ? "completed" : "not completed";
         viewHolder.tv_quizCompleted.setText(completed);
-        viewHolder.tv_quiz_nr.setText("10");
         if(completed.equals("not completed")){
             viewHolder.tv_quizCompleted.setTextColor(android.graphics.Color.RED);
             viewHolder.img.setImageResource(R.drawable.enter);
@@ -69,7 +67,7 @@ public class QuizAdapter extends BaseAdapter {
     }
 
     class ViewHolder{
-        TextView tv_quizName,tv_quizCompleted,tv_quiz_nr;
+        TextView tv_quizName,tv_quizCompleted;
         ImageView img;
     }
 }
