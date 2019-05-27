@@ -27,6 +27,8 @@ public interface APIService {
     @GET("question/get")
     Call<ResponseVO> getQuestion(@Query("categoryId") Integer categoryId);
 
+    @GET("category/finish")
+    Call<ResponseVO> finishcat(@QueryMap Map<String,String> map);
 
     @GET("record/add")
     Call<ResponseVO> addRecord(@QueryMap Map<String,String> map);

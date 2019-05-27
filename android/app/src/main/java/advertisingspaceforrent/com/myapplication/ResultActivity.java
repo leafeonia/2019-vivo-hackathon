@@ -54,10 +54,31 @@ public class ResultActivity extends AppCompatActivity {
             tv_addMoney.setText("+0");
         }
         else{
+            APIService apiService1 = APIUtil.getAPIService();
+            Map<String,String> map1 = new LinkedHashMap<>();
+            Integer userid = MainActivity.USER_ID;
+            map1.put("userId",userid.toString());
+            map1.put("categoryId",getIntent().getIntExtra("categoryId",1)+"");
+            Call<ResponseVO> call1 = apiService1.finishcat(map1);
+            call1.enqueue(new Callback<ResponseVO>() {
+                @Override
+                public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
+                    if (response.body().getSuccess()) {
+
+                    } else {
+                        ToastUtil.showToast(ResultActivity.this,response.body().getMessage(), Toast.LENGTH_SHORT);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseVO> call, Throwable t) {
+                    t.printStackTrace();
+                    ToastUtil.showToast(ResultActivity.this,"失败!",Toast.LENGTH_LONG);
+                }
+            });
             APIService apiService = APIUtil.getAPIService();
             Map<String,String> map = new LinkedHashMap<>();
             Integer one = 1;
-            Integer userid = MainActivity.USER_ID;
             map.put("userid",userid.toString());
             map.put("money",one.toString());
             Call<ResponseVO> call = apiService.updateMoney(map);
