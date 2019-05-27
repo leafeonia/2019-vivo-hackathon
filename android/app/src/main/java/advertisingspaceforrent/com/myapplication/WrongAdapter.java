@@ -44,17 +44,27 @@ public class WrongAdapter extends BaseAdapter {
             viewHolder = new WrongAdapter.viewHolder();
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView = layoutInflater.inflate(R.layout.wrong_list_item,parent,false);
-            viewHolder.textView = (TextView)convertView.findViewById(R.id.wrong_context);
+            viewHolder.tvContext = (TextView)convertView.findViewById(R.id.tv_wrong_context);
+            viewHolder.tvCorrect = convertView.findViewById(R.id.tv_wrong_correct);
             convertView.setTag(viewHolder);
         }
         else {
             viewHolder = (WrongAdapter.viewHolder) convertView.getTag();
         }
-        viewHolder.textView.setText(list.get(position).getContext());
+        String correct = "Assert";
+        Question current = list.get(position);
+        switch (current.getCorrect()){
+            case 1: correct = current.getChoiceA();break;
+            case 2: correct = current.getChoiceB();break;
+            case 3: correct = current.getChoiceC();break;
+            case 4: correct = current.getChoiceD();break;
+        }
+        viewHolder.tvCorrect.setText(correct);
+        viewHolder.tvContext.setText(current.getContext());
         return convertView;
     }
 
     class viewHolder{
-        TextView textView;
+        TextView tvContext, tvCorrect;
     }
 }

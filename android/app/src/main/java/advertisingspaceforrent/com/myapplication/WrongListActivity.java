@@ -54,7 +54,7 @@ public class WrongListActivity extends AppCompatActivity {
                     Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
                     String json = gson.toJson(response.body().getContent());
                     questions = gson.fromJson(json,new TypeToken<List<Question>>(){}.getType());
-                    Log.i("***TEST***",questions.get(0).getContext());
+//                    Log.i("***TEST***",questions.get(0).getContext());
 
                 } else {
                     ToastUtil.showToast(WrongListActivity.this,response.body().getMessage(), Toast.LENGTH_SHORT);
@@ -68,7 +68,9 @@ public class WrongListActivity extends AppCompatActivity {
             }
         });
         Question question = new Question();
-        question.setContext("FA");
+        question.setContext("下列哪个不属于面向对象的三大性质涉及到发布");
+        question.setCorrect(4);
+        question.setChoiceD("多样");
         questions.add(question);
         lv = (ListView) findViewById(R.id.lv_wrong);//得到ListView对象的引用
         /*为ListView设置Adapter来绑定数据*/
