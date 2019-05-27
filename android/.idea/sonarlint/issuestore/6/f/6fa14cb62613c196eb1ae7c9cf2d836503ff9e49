@@ -1,0 +1,4 @@
+
+lsquid:S1450"URemove the "topBar" field and declare it as a local variable in the relevant methods.(¹ªúØ
+Asquid:S1068"*Remove this unused "topBar" private field.(¹ªúØ
+@squid:S1905.")Remove this unnecessary cast to "Topbar".(çã·ð

@@ -1,0 +1,32 @@
+
+Gsquid:UselessImportCheck"Remove this duplicated import.(¢¶¿úÿÿÿÿ
+Csquid:S1659%" Declare "b2" on a separate line.(È€Æèúÿÿÿÿ8²öÊ¢¯-
+Zsquid:UselessImportCheck"6Remove this unused import 'android.media.MediaPlayer'.(İã¦
+Gsquid:UselessImportCheck"Remove this duplicated import.(°şÊóøÿÿÿÿ
+Csquid:S1659%" Declare "b4" on a separate line.(È€Æèúÿÿÿÿ8²öÊ¢¯-
+Csquid:S1659%" Declare "b3" on a separate line.(È€Æèúÿÿÿÿ8²öÊ¢¯-
+Dsquid:S1659#"-Declare "nav_header_emal" on a separate line.(ó—·
+Lsquid:S1905œ"/Remove this unnecessary cast to "DrawerLayout".(ĞÍè¨şÿÿÿÿ
+Gsquid:UselessImportCheck"Remove this duplicated import.(«Û®ûüÿÿÿÿ
+Asquid:UselessImportCheck"Remove this duplicated import.(à½£
+qsquid:S00116#"YRename this field "nav_header_nam" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó—·
+bsquid:CommentedOutCodeLinet"<This block of commented-out lines of code should be removed.(ÎØËõ
+isquid:S1192H"KDefine a constant instead of duplicating this literal "languageId" 5 times.(¢ªàÿ8Ü€È¢¯-
+Fsquid:S1905*"*Remove this unnecessary cast to "Toolbar".(ªü–ıÿÿÿÿ
+Xsquid:UselessImportCheck"4Remove this unused import 'android.content.Context'.(©Ê‰è
+Gsquid:UselessImportCheck"Remove this duplicated import.(Å¡à©ÿÿÿÿÿ
+rsquid:S00116#"ZRename this field "nav_header_emal" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó—·
+Ssquid:UselessImportCheck"/Remove this unused import 'android.os.Handler'.(ûÛ’¡
+nsquid:S001172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğèõ±úÿÿÿÿ
+Csquid:S1659%" Declare "b5" on a separate line.(È€Æèúÿÿÿÿ8²öÊ¢¯-
+Asquid:UselessImportCheck"Remove this duplicated import.(³ğ‹G
+[squid:UselessImportCheck"7Remove this unused import 'android.app.ProgressDialog'.(¶ÍÔÓ
+asquid:UselessImportCheck">Remove this unused import 'android.content.SharedPreferences'.(íÎÉr
+Msquid:S19050"1Remove this unnecessary cast to "NavigationView".(üûÍøÿÿÿÿ
+Ksquid:S1905,"/Remove this unnecessary cast to "DrawerLayout".(ĞÍè¨şÿÿÿÿ
+Bsquid:UselessImportCheck"Remove this duplicated import.(Ğ¬Ó‘
+csquid:CommentedOutCodeLine’"<This block of commented-out lines of code should be removed.(Ğµø•
+wsquid:S00116$"ZRename this field "nav_header_imag" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È¼ÒÆûÿÿÿÿ
+Gsquid:UselessImportCheck"Remove this duplicated import.(×‚’Şşÿÿÿÿ
+U
+squid:S106‚"9Replace this use of System.out or System.err by a logger.(Êê›×ÿÿÿÿÿ

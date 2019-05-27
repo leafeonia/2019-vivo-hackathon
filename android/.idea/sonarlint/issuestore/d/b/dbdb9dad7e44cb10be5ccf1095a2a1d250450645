@@ -1,0 +1,9 @@
+
+Fsquid:S1148E"#Use a logger to log this exception.(¯Óí‘úÿÿÿÿ8¢İ®£¯-
+~squid:UselessImportCheck"NRemove this unused import 'advertisingspaceforrent.com.myapplication.vo.User'.(—º»ùÿÿÿÿ8¢İ®£¯-
+gsquid:CommentedOutCodeLineU"<This block of commented-out lines of code should be removed.(×°¹øÿÿÿÿ
+Dsquid:S1481T"-Remove this unused "inflater" local variable.(Ü¤í÷
+nsquid:S00117Q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³âìÜşÿÿÿÿ
+Ssquid:S1854T"<Remove this useless assignment to local variable "inflater".(Ü¤í÷
+hsquid:UselessImportCheck"8Remove this unused import 'com.google.gson.GsonBuilder'.(”«à¬ÿÿÿÿÿ8¢İ®£¯-
+\squid:UselessImportCheck"1Remove this unused import 'com.google.gson.Gson'.(–§8¢İ®£¯-

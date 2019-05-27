@@ -1,0 +1,6 @@
+
+}squid:S1450""ZRemove the "mLanguageId" field and declare it as a local variable in the relevant methods.(õÇã øÿÿÿÿ8‹’¤¯-
+~squid:UselessImportCheck"NRemove this unused import 'advertisingspaceforrent.com.myapplication.vo.User'.(—º»ùÿÿÿÿ8ƒÁ´¤¯-
+isquid:CommentedOutCodeLine:"<This block of commented-out lines of code should be removed.(è“ñ–8§®ÿ¦¯-
+nsquid:CommentedOutCodeLine8"<This block of commented-out lines of code should be removed.(…â‹ÿüÿÿÿÿ8ƒü•¤¯-
+Fsquid:S1148K"#Use a logger to log this exception.(¯Óí‘úÿÿÿÿ8¡«¤¯-
