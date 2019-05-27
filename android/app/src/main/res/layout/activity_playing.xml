@@ -53,7 +53,7 @@
         android:layout_marginRight="20dp"
         android:text="Questions are here!"
         android:gravity="center"
-        android:textSize="40sp"
+        android:textSize="32sp"
         android:textColor="@color/design_default_color_primary_dark"/>
 
     <Button
