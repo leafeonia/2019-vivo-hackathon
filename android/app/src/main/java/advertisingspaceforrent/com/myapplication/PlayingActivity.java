@@ -36,6 +36,7 @@ public class PlayingActivity extends AppCompatActivity {
     Button buttonb;
     Button buttonc;
     Button buttond;
+    Button button4Back;
     TextView quesionContext;
     TextView topBarTitle;
 
@@ -50,6 +51,7 @@ public class PlayingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing);
+        button4Back = (Button) findViewById(R.id.topbar_leftText);
         buttona = (Button) findViewById(R.id.ButtonA);
         buttonb = (Button) findViewById(R.id.ButtonB);
         buttonc = (Button) findViewById(R.id.ButtonC);
@@ -78,6 +80,12 @@ public class PlayingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 judge(4);
+            }
+        });
+        button4Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
         topBar = (Topbar) findViewById(R.id.topbar);

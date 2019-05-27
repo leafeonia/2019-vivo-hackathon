@@ -31,4 +31,7 @@ public interface APIService {
 
     @GET("record/add")
     Call<ResponseVO> addRecord(@QueryMap Map<String,String> map);
+
+    @GET("record/get")
+    Call<ResponseVO> getRecordByUserId(@Query("userId") Integer userId);
 }
