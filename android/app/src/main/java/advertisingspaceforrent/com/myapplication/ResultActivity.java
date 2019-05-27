@@ -3,6 +3,8 @@ package advertisingspaceforrent.com.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ public class ResultActivity extends AppCompatActivity {
     private boolean allCorrect; //这次全对
     private boolean hasBeenCompleted; // 以前做完过
     TextView tv_result,tv_addMoney,tv_addPuzzle;
+    Button button4Quit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,13 @@ public class ResultActivity extends AppCompatActivity {
         tv_addPuzzle = findViewById(R.id.tv_addPuzzle);
         allCorrect = getIntent().getBooleanExtra("finish",false);
         hasBeenCompleted = getIntent().getBooleanExtra("hasFinished",false);
+        button4Quit = (Button) findViewById(R.id.quitToList);
+        button4Quit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ResultActivity.this, QuizListActivity.class));
+            }
+        });
         if (!allCorrect){
             tv_result.setText("Keep trying !");
             tv_result.setTextColor(android.graphics.Color.RED);
