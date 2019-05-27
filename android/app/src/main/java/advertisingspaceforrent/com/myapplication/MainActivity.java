@@ -2,16 +2,12 @@ package advertisingspaceforrent.com.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,14 +15,21 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
+import advertisingspaceforrent.com.myapplication.util.APIUtil;
+import advertisingspaceforrent.com.myapplication.util.ToastUtil;
+import advertisingspaceforrent.com.myapplication.vo.ResponseVO;
+import advertisingspaceforrent.com.myapplication.vo.User;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static Integer USER_ID = 0;
+
     Button button4signup;
     Button button4signin;
     EditText usnInput;
@@ -47,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+        usnInput = findViewById(R.id.name);
+        pwdInput = findViewById(R.id.password);
+
         button4signup = (Button)findViewById(R.id.signUp);
         button4signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,39 +69,35 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String usn = usnInput.getText().toString();
                 String pwd = pwdInput.getText().toString();
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://94.191.110.118:8080/")
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                        .build();
-                APIService apiService = retrofit.create(APIService.class);
-                Map<String,String> map = new HashMap<>();
+                APIService apiService = APIUtil.getAPIService();
+                Map<String,String> map = new LinkedHashMap<>();
                 map.put("username",usn);
                 map.put("password",pwd);
-                LoginForm loginForm = new LoginForm();
-                loginForm.setUsername(usn);
-                loginForm.setPassword(pwd);
-                Call<ResponseVO> call = apiService.login(loginForm);
+                Call<ResponseVO> call = apiService.login(map);
                 call.enqueue(new Callback<ResponseVO>() {
                     @Override
                     public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
                         if (response.body().getSuccess()) {
                             Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
-                            String json = gson.toJson(response.body().getObj());
+                            String json = gson.toJson(response.body().getContent());
                             User user = gson.fromJson(json,User.class);
-                            Toast.makeText(MainActivity.this,user.getUsername()+":"+user.getPassword(),Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(MainActivity.this, HomepageActivity.class);
+                            i.putExtra("username",user.getUsername());
+                            i.putExtra("email",user.getEmail());
+                            MainActivity.USER_ID = user.getId();
+                            startActivity(i);
                         } else {
-                            System.out.println(response.body().getMsg());
+                            ToastUtil.showToast(MainActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ResponseVO> call, Throwable t) {
+                        t.printStackTrace();
                         Toast.makeText(MainActivity.this,"失败!",Toast.LENGTH_LONG).show();
                     }
                 });
-                Intent i = new Intent(MainActivity.this, HomepageActivity.class);
-                startActivity(i);
+
             }
         });
 

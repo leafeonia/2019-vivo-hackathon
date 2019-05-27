@@ -1,5 +1,6 @@
 package advertisingspaceforrent.demo.serviceImpl;
 
+import advertisingspaceforrent.demo.controller.CategoryController;
 import advertisingspaceforrent.demo.data.CategoryMapper;
 import advertisingspaceforrent.demo.po.Category;
 import advertisingspaceforrent.demo.service.CategoryService;
@@ -35,6 +36,7 @@ public class CategoryServiceImpl implements CategoryService{
                 }
                 res.add(vo);
             }
+            CategoryController.logger.info(res.size()+"个数据处理完成");
             return ResponseVO.buildSuccess(res);
         }catch (Exception e){
             e.printStackTrace();
