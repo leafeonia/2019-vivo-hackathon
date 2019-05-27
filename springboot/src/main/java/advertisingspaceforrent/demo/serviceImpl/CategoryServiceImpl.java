@@ -19,6 +19,9 @@ public class CategoryServiceImpl implements CategoryService{
     public ResponseVO getCategory(Integer languageId, Integer userId){
         try {
             List<Category> category = categoryMapper.selectCategoryByLanguage(languageId);
+            if(null == category){
+                return ResponseVO.buildFailure("类别获取失败!");
+            }
             List<CategoryVO> res = new ArrayList<>();
             for (Category ca : category) {
                 CategoryVO vo = new CategoryVO();
@@ -31,9 +34,6 @@ public class CategoryServiceImpl implements CategoryService{
                     vo.setFinish(true);
                 }
                 res.add(vo);
-            }
-            if(null == category){
-                return ResponseVO.buildFailure("类别获取失败!");
             }
             return ResponseVO.buildSuccess(res);
         }catch (Exception e){
