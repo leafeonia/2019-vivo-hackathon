@@ -110,7 +110,6 @@
         android:text="Welcome"
         android:textAllCaps="false"
         android:textColor="@color/design_default_color_primary"
-        android:onClick="showHelp"
         android:background="?attr/actionBarItemBackground"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"/>

@@ -126,16 +126,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Used to show the help by triggering a toast
-    public void showHelp(View view) {
-
-        Toast toast_help = new Toast(getApplicationContext());
-        toast_help.setGravity(Gravity.CENTER, 0, 0);
-        toast_help.setDuration(Toast.LENGTH_LONG);
-        LayoutInflater inflater = getLayoutInflater();
-        //View appear = inflater.inflate(R.layout.toast_help, (ViewGroup) findViewById(R.id.linear));
-        //toast_help.setView(appear);
-        toast_help.show();
-
-    }
+//    public void showHelp(View view) {
+//
+//        Toast toast_help = new Toast(getApplicationContext());
+//        toast_help.setGravity(Gravity.CENTER, 0, 0);
+//        toast_help.setDuration(Toast.LENGTH_LONG);
+//        LayoutInflater inflater = getLayoutInflater();
+//        //View appear = inflater.inflate(R.layout.toast_help, (ViewGroup) findViewById(R.id.linear));
+//        //toast_help.setView(appear);
+//        toast_help.show();
+//
+//    }
 
 }
