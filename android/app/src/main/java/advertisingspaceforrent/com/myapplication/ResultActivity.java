@@ -45,10 +45,28 @@ public class ResultActivity extends AppCompatActivity {
             APIService apiService = APIUtil.getAPIService();
             Map<String,String> map = new LinkedHashMap<>();
             Integer one = 1;
-            Integer userid = 1; //TODO
+            Integer userid = MainActivity.USER_ID;
             map.put("userid",userid.toString());
             map.put("money",one.toString());
             Call<ResponseVO> call = apiService.updateMoney(map);
+            call.enqueue(new Callback<ResponseVO>() {
+                @Override
+                public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
+                    if (response.body().getSuccess()) {
+
+                    } else {
+                        ToastUtil.showToast(ResultActivity.this,response.body().getMessage(), Toast.LENGTH_SHORT);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseVO> call, Throwable t) {
+                    t.printStackTrace();
+                    ToastUtil.showToast(ResultActivity.this,"失败!",Toast.LENGTH_LONG);
+                }
+            });
+
+            call = apiService.updatePuzzle(userid);
             call.enqueue(new Callback<ResponseVO>() {
                 @Override
                 public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
