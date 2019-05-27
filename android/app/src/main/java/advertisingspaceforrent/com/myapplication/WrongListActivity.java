@@ -46,7 +46,7 @@ public class WrongListActivity extends AppCompatActivity {
         });
 
         APIService apiService = APIUtil.getAPIService();
-        Call<ResponseVO> call = apiService.getRecordByUserId(getIntent().getIntExtra("userId",0));
+        Call<ResponseVO> call = apiService.getRecordByUserId(MainActivity.USER_ID);
         call.enqueue(new Callback<ResponseVO>() {
             @Override
             public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {

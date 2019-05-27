@@ -2,6 +2,7 @@ package advertisingspaceforrent.com.myapplication;
 
 import android.content.Context;
 import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,7 @@ public class QuizAdapter extends BaseAdapter {
             viewHolder = (QuizAdapter.ViewHolder) convertView.getTag();
         }
         viewHolder.tv_quizName.setText(quizs.get(position).getName());
+        Log.i("quizFinished",quizs.get(position).getFinish().toString());
         String completed = quizs.get(position).getFinish()==1 ? "completed" : "not completed";
         viewHolder.tv_quizCompleted.setText(completed);
         if(completed.equals("not completed")){
