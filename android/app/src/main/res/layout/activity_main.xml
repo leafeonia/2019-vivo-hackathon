@@ -107,11 +107,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Help"
+        android:text="Welcome"
         android:textAllCaps="false"
         android:textColor="@color/design_default_color_primary"
         android:onClick="showHelp"
-        android:drawableLeft="@drawable/help"
         android:background="?attr/actionBarItemBackground"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"/>
