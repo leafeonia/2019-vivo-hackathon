@@ -17,7 +17,7 @@ import java.util.Map;
 
 import advertisingspaceforrent.com.myapplication.util.APIUtil;
 import advertisingspaceforrent.com.myapplication.util.ToastUtil;
-import advertisingspaceforrent.com.myapplication.vo.Category;
+import advertisingspaceforrent.com.myapplication.vo.CategoryVO;
 import advertisingspaceforrent.com.myapplication.vo.ResponseVO;
 import advertisingspaceforrent.com.myapplication.vo.User;
 import retrofit2.Call;
@@ -25,7 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PuzzleActivity extends AppCompatActivity {
-    private List<Integer> puzzleList = new ArrayList<>();
+    private List<Integer> puzzleList;
     ImageView p1,p2,p3,p4,p5,p6,p7,p8,p9;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

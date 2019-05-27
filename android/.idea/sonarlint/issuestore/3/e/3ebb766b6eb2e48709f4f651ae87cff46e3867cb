@@ -1,0 +1,14 @@
+
+zsquid:S00116"VRename this field "tv_addMoney" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´É»ùÿÿÿÿ8Ü“è©¯-
+~squid:UselessImportCheck"NRemove this unused import 'advertisingspaceforrent.com.myapplication.vo.User'.(—º»ùÿÿÿÿ8‹øª¯-
+Fsquid:S1148@"#Use a logger to log this exception.(¯Óí‘úÿÿÿÿ8úù©¯-
+{squid:S00116"WRename this field "tv_addPuzzle" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´É»ùÿÿÿÿ8Ü“è©¯-
+Lsquid:S1659")Declare "tv_addMoney" on a separate line.(´É»ùÿÿÿÿ8Ü“è©¯-
+Gsquid:S001087")Either remove or fill this block of code.(…Éİm8‹øª¯-
+hsquid:UselessImportCheck
+"8Remove this unused import 'com.google.gson.GsonBuilder'.(”«à¬ÿÿÿÿÿ8‹øª¯-
+\squid:UselessImportCheck	"1Remove this unused import 'com.google.gson.Gson'.(–§8‹øª¯-
+xsquid:S00116"TRename this field "tv_result" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´É»ùÿÿÿÿ8Ü“è©¯-
+Usquid:S11350"2Complete the task associated to this TODO comment.(Ÿ¯·æşÿÿÿÿ8†ÿ©¯-
+Msquid:S1659"*Declare "tv_addPuzzle" on a separate line.(´É»ùÿÿÿÿ8Ü“è©¯-
+]squid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(³ğ‹G8‹øª¯-
