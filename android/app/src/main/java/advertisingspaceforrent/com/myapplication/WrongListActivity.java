@@ -55,6 +55,7 @@ public class WrongListActivity extends AppCompatActivity {
                     String json = gson.toJson(response.body().getContent());
                     questions = gson.fromJson(json,new TypeToken<List<Question>>(){}.getType());
 //                    Log.i("***TEST***",questions.get(0).getContext());
+                    Log.i("json",json);
                     Log.i("wrong context",questions.get(0).getContext());
                     lv = (ListView) findViewById(R.id.lv_wrong);//得到ListView对象的引用
                     /*为ListView设置Adapter来绑定数据*/
