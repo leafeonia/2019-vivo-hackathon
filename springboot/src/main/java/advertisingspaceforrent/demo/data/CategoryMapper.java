@@ -12,7 +12,9 @@ public interface CategoryMapper {
 
     List<Category> selectCategoryByLanguage(@Param("languageId") Integer languageId);
 
-    Donelist selectDonelistByUserAndCategoryId(@Param("categoryId") Integer categoryId, @Param("userId") Integer userId);
+    Donelist selectDonelistByUserAndCategoryId(@Param("categoryId") Integer categoryId,
+                                               @Param("userId") Integer userId);
 
-    int insertDonelist(@Param("userId") Integer userId, @Param("categoryId") Integer categoryId);
+    int insertDonelist(@Param("userId") Integer userId,
+                       @Param("categoryId") Integer categoryId);
 }

@@ -1,5 +1,6 @@
 package advertisingspaceforrent.demo.serviceImpl;
 
+import advertisingspaceforrent.demo.controller.CategoryController;
 import advertisingspaceforrent.demo.data.CategoryMapper;
 import advertisingspaceforrent.demo.po.Category;
 import advertisingspaceforrent.demo.service.CategoryService;
@@ -19,6 +20,9 @@ public class CategoryServiceImpl implements CategoryService{
     public ResponseVO getCategory(Integer languageId, Integer userId){
         try {
             List<Category> category = categoryMapper.selectCategoryByLanguage(languageId);
+            if(null == category){
+                return ResponseVO.buildFailure("类别获取失败!");
+            }
             List<CategoryVO> res = new ArrayList<>();
             for (Category ca : category) {
                 CategoryVO vo = new CategoryVO();
@@ -32,9 +36,7 @@ public class CategoryServiceImpl implements CategoryService{
                 }
                 res.add(vo);
             }
-            if(null == category){
-                return ResponseVO.buildFailure("类别获取失败!");
-            }
+            CategoryController.logger.info(res.size()+"个数据处理完成");
             return ResponseVO.buildSuccess(res);
         }catch (Exception e){
             e.printStackTrace();

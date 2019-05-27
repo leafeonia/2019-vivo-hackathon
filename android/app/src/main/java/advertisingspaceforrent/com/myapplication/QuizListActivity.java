@@ -23,7 +23,7 @@ import java.util.Set;
 
 import advertisingspaceforrent.com.myapplication.util.APIUtil;
 import advertisingspaceforrent.com.myapplication.util.ToastUtil;
-import advertisingspaceforrent.com.myapplication.vo.Category;
+import advertisingspaceforrent.com.myapplication.vo.CategoryVO;
 import advertisingspaceforrent.com.myapplication.vo.ResponseVO;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,7 +33,7 @@ public class QuizListActivity extends AppCompatActivity {
 
     private ListView mquizList;
     private Integer mLanguageId;
-    List<Category> cateList;
+    List<CategoryVO> cateList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,29 +44,25 @@ public class QuizListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 Intent i = new Intent(QuizListActivity.this, PlayingActivity.class);
+                i.putExtra("categoryId",cateList.get(arg2).getId());
+                i.putExtra("hasFinished",cateList.get(arg2).isFinish());
                 startActivity(i);
             }
         });
-    }
 
-    @Override
-    protected void onResume() {
-        List<Category> cat = new ArrayList<>(); // = getfromserver
         Intent intent = getIntent();
         mLanguageId = intent.getIntExtra("languageId",1);
-//        Toast.makeText(QuizListActivity.this,"lan ID" + Integer.toString(languageId),Toast.LENGTH_SHORT).show();
         APIService apiService = APIUtil.getAPIService();
-        Map<String,String> map = new LinkedHashMap<>();
-        map.put("languageId",mLanguageId.toString());
-        map.put("userId",MainActivity.USER_ID.toString());
-        Call<ResponseVO> call = apiService.getQuizList(map);
+        Call<ResponseVO> call = apiService.getQuizList(mLanguageId,MainActivity.USER_ID);
         call.enqueue(new Callback<ResponseVO>() {
             @Override
             public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
                 if (response.body().getSuccess()) {
                     Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
                     String json = gson.toJson(response.body().getContent());
-                    cateList = gson.fromJson(json, new TypeToken<List<Category>>() {}.getType());
+                    cateList = gson.fromJson(json, new TypeToken<List<CategoryVO>>() {}.getType());
+                    Log.i("***TEST***",cateList.get(0).getName());
+                    mquizList.setAdapter(new QuizAdapter(cateList,QuizListActivity.this));
                 } else {
                     ToastUtil.showToast(QuizListActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT);
                 }
@@ -78,18 +74,24 @@ public class QuizListActivity extends AppCompatActivity {
                 ToastUtil.showToast(QuizListActivity.this,"失败!",Toast.LENGTH_LONG);
             }
         });
-        Map quizs = new HashMap();
-        for (Category c : cateList){
-            String temp;
-            if(c.getFinished() == 0) temp = "completed*26";
-            else temp = "not completed*26";
-            quizs.put(c.getName(),temp);
-        }
-        Set<Map.Entry<String,String>> entrys = quizs.entrySet();
-        List<Map.Entry<String,String>> quizList = new ArrayList<>(entrys);
-        mquizList.setAdapter(new QuizAdapter(quizList,QuizListActivity.this));
-        super.onResume();
+
     }
+
+//    @Override
+//    protected void onResume() {
+//        List<CategoryVO> cat; // = getfromserver
+//        Map quizs = new HashMap();
+//        for (CategoryVO c : cateList){
+//            String temp;
+//            if(!c.isFinish()) temp = "completed*26";
+//            else temp = "not completed*26";
+//            quizs.put(c.getName(),temp);
+//        }
+//        Set<Map.Entry<String,String>> entrys = quizs.entrySet();
+//        List<Map.Entry<String,String>> quizList = new ArrayList<>(entrys);
+//        mquizList.setAdapter(new QuizAdapter(quizList,QuizListActivity.this));
+//        super.onResume();
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
