@@ -32,14 +32,9 @@
         </advertisingspaceforrent.com.myapplication.Topbar>
 
     <ListView
-        android:id="@+id/lv"
+        android:id="@+id/lv_wrong"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/textView"/>
-
 
     </ListView>
 

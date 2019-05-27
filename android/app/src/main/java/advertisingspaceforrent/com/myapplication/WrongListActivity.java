@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import advertisingspaceforrent.com.myapplication.util.APIUtil;
@@ -29,7 +30,7 @@ public class WrongListActivity extends AppCompatActivity {
 
     private ListView lv;
 
-    List<Question> questions;
+    List<Question> questions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class WrongListActivity extends AppCompatActivity {
                     String json = gson.toJson(response.body().getContent());
                     questions = gson.fromJson(json,new TypeToken<List<Question>>(){}.getType());
                     Log.i("***TEST***",questions.get(0).getContext());
+
                 } else {
                     ToastUtil.showToast(WrongListActivity.this,response.body().getMessage(), Toast.LENGTH_SHORT);
                 }
@@ -65,7 +67,10 @@ public class WrongListActivity extends AppCompatActivity {
                 ToastUtil.showToast(WrongListActivity.this,"失败!",Toast.LENGTH_LONG);
             }
         });
-        lv = (ListView) findViewById(R.id.lv);//得到ListView对象的引用
+        Question question = new Question();
+        question.setContext("FA");
+        questions.add(question);
+        lv = (ListView) findViewById(R.id.lv_wrong);//得到ListView对象的引用
         /*为ListView设置Adapter来绑定数据*/
         lv.setAdapter(new WrongAdapter(WrongListActivity.this,questions));
     }

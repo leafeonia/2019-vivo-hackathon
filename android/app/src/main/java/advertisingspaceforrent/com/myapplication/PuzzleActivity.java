@@ -25,7 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PuzzleActivity extends AppCompatActivity {
-    private List<Integer> puzzleList;
+    private List<Integer> puzzleList = new ArrayList<>();
     ImageView p1,p2,p3,p4,p5,p6,p7,p8,p9;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
