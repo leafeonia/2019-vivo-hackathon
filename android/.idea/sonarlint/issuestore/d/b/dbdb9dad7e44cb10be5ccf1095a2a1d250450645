@@ -1,0 +1,5 @@
+
+nsquid:S00117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³âìÜþÿÿÿÿ
+Dsquid:S1481%"-Remove this unused "inflater" local variable.(Ü¤í÷
+Ssquid:S1854%"<Remove this useless assignment to local variable "inflater".(Ü¤í÷
+gsquid:CommentedOutCodeLine&"<This block of commented-out lines of code should be removed.(Ž×°¹øÿÿÿÿ
