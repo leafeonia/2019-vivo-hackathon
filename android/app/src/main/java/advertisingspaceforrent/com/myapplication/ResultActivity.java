@@ -67,13 +67,13 @@ public class ResultActivity extends AppCompatActivity {
                     ToastUtil.showToast(ResultActivity.this,"失败!",Toast.LENGTH_LONG);
                 }
             });
-
-            call = apiService.updatePuzzle(userid);
-            call.enqueue(new Callback<ResponseVO>() {
+            APIService apiService2 = APIUtil.getAPIService();
+            Call<ResponseVO> call2 = apiService2.addPuzzle(userid);
+            call2.enqueue(new Callback<ResponseVO>() {
                 @Override
                 public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
                     if (response.body().getSuccess()) {
-
+                        ToastUtil.showToast(ResultActivity.this,"获得了一张随机图鉴!",Toast.LENGTH_SHORT);
                     } else {
                         ToastUtil.showToast(ResultActivity.this,response.body().getMessage(), Toast.LENGTH_SHORT);
                     }
@@ -85,7 +85,6 @@ public class ResultActivity extends AppCompatActivity {
                     ToastUtil.showToast(ResultActivity.this,"失败!",Toast.LENGTH_LONG);
                 }
             });
-
         }
     }
 }

@@ -30,9 +30,9 @@ public class CategoryServiceImpl implements CategoryService{
                 vo.setName(ca.getName());
                 vo.setLanguageId(ca.getLanguageId());
                 if (categoryMapper.selectDonelistByUserAndCategoryId(ca.getId(),userId) == null) {
-                    vo.setFinish(false);
+                    vo.setFinish(0);
                 } else {
-                    vo.setFinish(true);
+                    vo.setFinish(1);
                 }
                 res.add(vo);
             }

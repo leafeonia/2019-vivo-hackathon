@@ -1,9 +1,6 @@
 package advertisingspaceforrent.demo.service;
 
-import advertisingspaceforrent.demo.vo.LoginForm;
 import advertisingspaceforrent.demo.vo.ResponseVO;
-import advertisingspaceforrent.demo.vo.SignUpForm;
-import advertisingspaceforrent.demo.vo.UpdateMoneyForm;
 
 public interface UserService {
 
