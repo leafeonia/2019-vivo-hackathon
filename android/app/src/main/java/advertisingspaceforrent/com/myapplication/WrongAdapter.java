@@ -38,19 +38,19 @@ public class WrongAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View convertView, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         WrongAdapter.viewHolder viewHolder;
         if (convertView == null){
             viewHolder = new WrongAdapter.viewHolder();
             LayoutInflater layoutInflater = LayoutInflater.from(context);
-            convertView = layoutInflater.inflate(R.layout.activity_wrong_list,null);
-            viewHolder.textView = (TextView)convertView.findViewById(R.id.textView);
+            convertView = layoutInflater.inflate(R.layout.wrong_list_item,parent,false);
+            viewHolder.textView = (TextView)convertView.findViewById(R.id.wrong_context);
             convertView.setTag(viewHolder);
         }
         else {
             viewHolder = (WrongAdapter.viewHolder) convertView.getTag();
         }
-        viewHolder.textView.setText(list.indexOf(i));
+        viewHolder.textView.setText(list.get(position).getContext());
         return convertView;
     }
 
