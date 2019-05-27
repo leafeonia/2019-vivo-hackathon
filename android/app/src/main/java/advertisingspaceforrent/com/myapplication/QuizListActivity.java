@@ -56,9 +56,10 @@ public class QuizListActivity extends AppCompatActivity {
         mLanguageId = intent.getIntExtra("languageId",1);
 //        Toast.makeText(QuizListActivity.this,"lan ID" + Integer.toString(languageId),Toast.LENGTH_SHORT).show();
         APIService apiService = APIUtil.getAPIService();
-//        Map<String,String> map = new LinkedHashMap<>();
-//        map.put("languageId",mLanguageId.toString());
-        Call<ResponseVO> call = apiService.getQuizList(mLanguageId);
+        Map<String,String> map = new LinkedHashMap<>();
+        map.put("languageId",mLanguageId.toString());
+        map.put("userId",MainActivity.USER_ID.toString());
+        Call<ResponseVO> call = apiService.getQuizList(map);
         call.enqueue(new Callback<ResponseVO>() {
             @Override
             public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
@@ -66,6 +67,7 @@ public class QuizListActivity extends AppCompatActivity {
                     Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
                     String json = gson.toJson(response.body().getContent());
                     cateList = gson.fromJson(json, new TypeToken<List<Category>>() {}.getType());
+                    Log.i("***TEST***",cateList.get(0).getName());
                 } else {
                     ToastUtil.showToast(QuizListActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT);
                 }

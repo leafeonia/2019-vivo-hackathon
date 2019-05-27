@@ -17,8 +17,7 @@ public interface APIService {
     Call<ResponseVO> signUp(@QueryMap Map<String,String> map);
 
     @GET("category/get")
-    Call<ResponseVO> getQuizList(@Query("languageId") Integer languageId);
-//    Call<ResponseVO> getQuizList(@QueryMap Map<String,String> map);
+    Call<ResponseVO> getQuizList(@QueryMap Map<String,String> map);
 
     @GET("user/updatemoney")
     Call<ResponseVO> updateMoney(@QueryMap Map<String,String> map);
