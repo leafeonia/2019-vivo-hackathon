@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -37,18 +38,20 @@ public class WrongAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        viewHolder viewHolder = null;
-        if (view == null){
-            viewHolder = new viewHolder();
-            viewHolder.textView  = (TextView) view.findViewById(R.id.textView);
-            view.setTag(viewHolder);
-        }else{
-            viewHolder = (WrongAdapter.viewHolder) view.getTag();
+    public View getView(int i, View convertView, ViewGroup viewGroup) {
+        WrongAdapter.viewHolder viewHolder;
+        if (convertView == null){
+            viewHolder = new WrongAdapter.viewHolder();
+            LayoutInflater layoutInflater = LayoutInflater.from(context);
+            convertView = layoutInflater.inflate(R.layout.activity_wrong_list,null);
+            viewHolder.textView = (TextView)convertView.findViewById(R.id.textView);
+            convertView.setTag(viewHolder);
         }
-
+        else {
+            viewHolder = (WrongAdapter.viewHolder) convertView.getTag();
+        }
         viewHolder.textView.setText(list.indexOf(i));
-        return view;
+        return convertView;
     }
 
     class viewHolder{
