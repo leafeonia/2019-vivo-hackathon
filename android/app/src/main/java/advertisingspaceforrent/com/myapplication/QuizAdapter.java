@@ -12,12 +12,14 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.Map;
 
+import advertisingspaceforrent.com.myapplication.vo.CategoryVO;
+
 public class QuizAdapter extends BaseAdapter {
 
-    List<Map.Entry<String,String>> quizs;
+    List<CategoryVO> quizs;
     Context context;
 
-    public QuizAdapter(List<Map.Entry<String, String>> quizs, Context context) {
+    public QuizAdapter(List<CategoryVO> quizs, Context context) {
         this.quizs = quizs;
         this.context = context;
     }
@@ -54,10 +56,10 @@ public class QuizAdapter extends BaseAdapter {
         else {
             viewHolder = (QuizAdapter.ViewHolder) convertView.getTag();
         }
-        viewHolder.tv_quizName.setText(quizs.get(position).getKey());
-        String completed = quizs.get(position).getValue().split("\\*")[0];
+        viewHolder.tv_quizName.setText(quizs.get(position).getName());
+        String completed = quizs.get(position).isFinish() ? "completed" : "not completed";
         viewHolder.tv_quizCompleted.setText(completed);
-        viewHolder.tv_quiz_nr.setText(quizs.get(position).getValue().split("\\*")[1]);
+        viewHolder.tv_quiz_nr.setText("10");
         if(completed.equals("not completed")){
             viewHolder.tv_quizCompleted.setTextColor(android.graphics.Color.RED);
             viewHolder.img.setImageResource(R.drawable.enter);
