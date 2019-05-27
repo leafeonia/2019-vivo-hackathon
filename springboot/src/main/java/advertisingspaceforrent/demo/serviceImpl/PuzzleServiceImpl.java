@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class PuzzleServiceImpl implements PuzzleService {
@@ -27,18 +28,23 @@ public class PuzzleServiceImpl implements PuzzleService {
         }
     }
 
-    public ResponseVO addPuzzle(Integer userid, Integer puzzleid){
+    public ResponseVO addPuzzle(Integer userid){
         try {
-            PuzzleUser puzzle = puzzleMapper.selectPuzzleByUseridAndPuzzle(userid, puzzleid);
-            if(null != puzzle){
-                return ResponseVO.buildFailure("该图鉴已获得!");
+            List<Integer> puzzle = puzzleMapper.selectPuzzleByUserid(userid);
+            if (puzzle.size()==9){
+                return ResponseVO.buildFailure("恭喜你已获得全部图片!");
             }
-
-            int success = puzzleMapper.insertPuzzle(userid, puzzleid);
-            if(success == 0){
-                return ResponseVO.buildFailure("图鉴增加失败!");
+            Random rand = new Random();
+            while (true){
+                Integer puzzleid = rand.nextInt(9)+1;
+                if(puzzle.indexOf(puzzleid)==-1){
+                    int success = puzzleMapper.insertPuzzle(userid, puzzleid);
+                    if(success == 0){
+                        return ResponseVO.buildFailure("图鉴增加失败!");
+                    }
+                    return ResponseVO.buildSuccess();
+                }
             }
-            return ResponseVO.buildSuccess();
         }catch (Exception e){
             e.printStackTrace();
             return ResponseVO.buildFailure("图鉴增加失败!");

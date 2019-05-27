@@ -10,8 +10,10 @@ public interface RecordMapper {
 
     List<Integer> selectRecordsByUserId(@Param("userId") Integer userId);
 
-    int insertRecord(@Param("userId") Integer userId, @Param("questionId") Integer questionId);
+    int insertRecord(@Param("userId") Integer userId,
+                     @Param("questionId") Integer questionId);
 
-    int deleteRecord(@Param("userId") Integer userId, @Param("questionId") Integer questionId);
+    int deleteRecord(@Param("userId") Integer userId,
+                     @Param("questionId") Integer questionId);
 
 }
