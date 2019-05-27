@@ -51,7 +51,7 @@ public class PlayingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing);
-        button4Back = (Button) findViewById(R.id.topbar_leftText);
+        button4Back = (Button) findViewById(R.id.quit);
         buttona = (Button) findViewById(R.id.ButtonA);
         buttonb = (Button) findViewById(R.id.ButtonB);
         buttonc = (Button) findViewById(R.id.ButtonC);
@@ -88,7 +88,7 @@ public class PlayingActivity extends AppCompatActivity {
         button4Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PlayingActivity.this,QuizListActivity.class));
+                finish();
             }
         });
 

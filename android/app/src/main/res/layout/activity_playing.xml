@@ -12,7 +12,8 @@
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:text="Back"
-        android:/>
+        android:id="@+id/quit"
+        android:background="#0000"/>
     <advertisingspaceforrent.com.myapplication.Topbar
         android:id="@+id/topbar"
         android:layout_width="match_parent"
@@ -20,12 +21,12 @@
         app:leftTextColor = "#000000"
         app:rightTextColor = "#000000"
         >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/topbar_leftText"
-            android:text="back"
-            android:background="#00000000"/>
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:id="@+id/topbar_leftText"-->
+            <!--android:text="back"-->
+            <!--android:background="#00000000"/>-->
 
         <TextView
             android:id="@+id/topbar_title"
