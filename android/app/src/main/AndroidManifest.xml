@@ -16,7 +16,8 @@
         <activity android:name=".ResultActivity" />
         <activity android:name=".PuzzleActivity"></activity>
         <activity android:name=".MainSignUpActivity" />
-        <activity android:name=".HomepageActivity" />
+        <activity android:name=".HomepageActivity"
+                  android:label="Home Page"/>
         <activity android:name=".PlayingActivity" />
         <activity
             android:name=".MainActivity"
