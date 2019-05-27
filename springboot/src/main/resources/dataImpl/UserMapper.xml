@@ -18,8 +18,7 @@
     </insert>
 
     <update id="updateMoney">
-        UPDATE user SET money=money+#{money}
-        WHERE id=#{userid}
+        UPDATE user SET money=money+#{money} WHERE id=#{userid}
     </update>
 
     <select id="getRestMoney">

@@ -36,10 +36,12 @@ public class PlayingActivity extends AppCompatActivity {
     Button buttonb;
     Button buttonc;
     Button buttond;
+    Button button4Back;
     TextView quesionContext;
     TextView topBarTitle;
 
     int categoryId;
+    boolean hasFinished;
     List<Question> questions;
     int flag;
     int score;
@@ -49,6 +51,7 @@ public class PlayingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing);
+        button4Back = (Button) findViewById(R.id.topbar_leftText);
         buttona = (Button) findViewById(R.id.ButtonA);
         buttonb = (Button) findViewById(R.id.ButtonB);
         buttonc = (Button) findViewById(R.id.ButtonC);
@@ -79,9 +82,16 @@ public class PlayingActivity extends AppCompatActivity {
                 judge(4);
             }
         });
+        button4Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         topBar = (Topbar) findViewById(R.id.topbar);
 
         categoryId = getIntent().getIntExtra("categoryId",0);
+        hasFinished = getIntent().getBooleanExtra("hasFinished",false);
 
         APIService apiService = APIUtil.getAPIService();
         Call<ResponseVO> call = apiService.getQuestion(getIntent().getIntExtra("categoryId",0));
@@ -139,7 +149,28 @@ public class PlayingActivity extends AppCompatActivity {
     }
 
     private void showWrongDialog() {
-        //TODO
+        APIService apiService = APIUtil.getAPIService();
+        Map<String,String> map = new LinkedHashMap<>();
+        map.put("userId",MainActivity.USER_ID.toString());
+        map.put("questionId",""+questions.get(flag).getId());
+        Call<ResponseVO> call = apiService.addRecord(map);
+        call.enqueue(new Callback<ResponseVO>() {
+            @Override
+            public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
+                if (response.body().getSuccess()) {
+                    ToastUtil.showToast(PlayingActivity.this,"已自动添加到错题集",Toast.LENGTH_SHORT);
+                } else {
+                    ToastUtil.showToast(PlayingActivity.this,response.body().getMessage(), Toast.LENGTH_SHORT);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseVO> call, Throwable t) {
+                t.printStackTrace();
+                ToastUtil.showToast(PlayingActivity.this,"失败!",Toast.LENGTH_LONG);
+            }
+        });
+
         final AlertDialog.Builder wrongDialog = new AlertDialog.Builder(PlayingActivity.this);
         wrongDialog.setCancelable(false);
         wrongDialog.setIcon(R.drawable.wrong);
@@ -177,13 +208,14 @@ public class PlayingActivity extends AppCompatActivity {
 
     private void toNextQuestion() {
         if (flag == questions.size()-1) {
-            boolean finish = true;
+            boolean finish = false;
             if (score == questions.size()) {
-                finish = false;
+                finish = true;
             }
             Intent intent = new Intent(PlayingActivity.this,ResultActivity.class);
             intent.putExtra("finish",finish);
             intent.putExtra("categoryId",categoryId);
+            intent.putExtra("hasFinished",hasFinished);
             startActivity(intent);
         } else {
             flag++;

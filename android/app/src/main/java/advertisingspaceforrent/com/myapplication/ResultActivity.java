@@ -31,6 +31,8 @@ public class ResultActivity extends AppCompatActivity {
         tv_result = findViewById(R.id.tv_result);
         tv_addMoney = findViewById(R.id.tv_addMoney);
         tv_addPuzzle = findViewById(R.id.tv_addPuzzle);
+        allCorrect = getIntent().getBooleanExtra("finish",false);
+        hasBeenCompleted = getIntent().getBooleanExtra("hasFinished",false);
         if (!allCorrect){
             tv_result.setText("Keep trying !");
             tv_result.setTextColor(android.graphics.Color.RED);
@@ -45,7 +47,7 @@ public class ResultActivity extends AppCompatActivity {
             APIService apiService = APIUtil.getAPIService();
             Map<String,String> map = new LinkedHashMap<>();
             Integer one = 1;
-            Integer userid = 1; //TODO
+            Integer userid = MainActivity.USER_ID;
             map.put("userid",userid.toString());
             map.put("money",one.toString());
             Call<ResponseVO> call = apiService.updateMoney(map);
@@ -65,7 +67,24 @@ public class ResultActivity extends AppCompatActivity {
                     ToastUtil.showToast(ResultActivity.this,"失败!",Toast.LENGTH_LONG);
                 }
             });
+            APIService apiService2 = APIUtil.getAPIService();
+            Call<ResponseVO> call2 = apiService2.addPuzzle(userid);
+            call2.enqueue(new Callback<ResponseVO>() {
+                @Override
+                public void onResponse(Call<ResponseVO> call, Response<ResponseVO> response) {
+                    if (response.body().getSuccess()) {
+                        ToastUtil.showToast(ResultActivity.this,"获得了一张随机图鉴!",Toast.LENGTH_SHORT);
+                    } else {
+                        ToastUtil.showToast(ResultActivity.this,response.body().getMessage(), Toast.LENGTH_SHORT);
+                    }
+                }
 
+                @Override
+                public void onFailure(Call<ResponseVO> call, Throwable t) {
+                    t.printStackTrace();
+                    ToastUtil.showToast(ResultActivity.this,"失败!",Toast.LENGTH_LONG);
+                }
+            });
         }
     }
 }

@@ -5,6 +5,7 @@ import advertisingspaceforrent.demo.vo.ResponseVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +18,8 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @RequestMapping("/category/get")
-    public ResponseVO getCategory(@RequestParam("languageId") Integer languageId, @RequestParam("userId") Integer userId){
+    @RequestMapping("/category/get/{languageId}/{userId}")
+    public ResponseVO getCategory(@PathVariable("languageId") Integer languageId, @PathVariable("userId") Integer userId){
         logger.info("languageId="+languageId+",userId="+userId);
         return categoryService.getCategory(languageId,userId);
     }
