@@ -51,9 +51,9 @@ public class PuzzleActivity extends AppCompatActivity {
                 ToastUtil.showToast(PuzzleActivity.this,"失败!",Toast.LENGTH_LONG);
             }
         });
-        puzzleList.add(5);
-        puzzleList.add(1);
-        puzzleList.add(7);
+//        puzzleList.add(5);
+//        puzzleList.add(1);
+//        puzzleList.add(7);
         p1 = findViewById(R.id.puzzle1);
         p2 = findViewById(R.id.puzzle2);
         p3 = findViewById(R.id.puzzle3);
